@@ -15,7 +15,8 @@ require 'faker'
     state: Faker::Address.state_abbr,
     country: Faker::Address.country_code,
     description: Faker::Company.catch_phrase,
-    website_url: Faker::Internet.domain_name
+    website_url: Faker::Internet.domain_name,
+    logo: Faker::Company.logo
   )
   company.save!
 
