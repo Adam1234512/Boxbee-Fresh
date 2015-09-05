@@ -8,7 +8,9 @@
 </head>
 <body>
 <%= render partial: 'layouts/header' %>
-<div class="body-container">
+<div class="body-container container-fluid">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
   <%= yield %>
 </div>
 

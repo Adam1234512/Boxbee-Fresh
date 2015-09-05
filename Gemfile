@@ -32,6 +32,9 @@ gem 'pundit'
 # Credentials
 gem 'figaro'
 
+#Seeding, Testing etc.
+gem 'faker'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

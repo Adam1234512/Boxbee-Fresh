@@ -1,0 +1,16 @@
+<%= content_tag :div, class: 'media', id: "company-#{company.id}" do %>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <div class="media-left">
+        IMAGE goes here
+      </div>
+      <div class="media-body">
+        <h4><%="#{company.name}"%></h4>
+        <%="#{company.description}"%> <%="Located in: #{company.city}, #{company.state}."%>
+      </div>
+      <div class="media-right">
+        <%= button_to "Visit company", "#{company.website_url}", class: "btn-amber"%>
+      </div>
+    </li>
+  </ul>
+<% end %>
