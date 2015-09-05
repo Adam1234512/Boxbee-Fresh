@@ -1,0 +1,13 @@
+<div class="centered-title">
+  <h1>Find on demand storage near you.</h1>
+</div>
+
+<%= form_tag companies_path, method: 'get', id: "companies-search" do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", name: nil %>
+  </p>
+  <div id="companies">
+    <%= render partial: 'companies/company', collection: @companies %>
+  </div>
+<% end %>
