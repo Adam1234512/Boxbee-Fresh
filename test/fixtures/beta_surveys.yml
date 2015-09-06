@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  currently_offer_storage: false
+  how_manage_warehouse: MyString
+  offer_transport: false
+  how_manage_vehicles: MyString
+  how_bookings_done: MyString
+  company_name: MyString
+  company_website: MyString
+  name: MyString
+  preferred_contact_method: MyString
+
+two:
+  currently_offer_storage: false
+  how_manage_warehouse: MyString
+  offer_transport: false
+  how_manage_vehicles: MyString
+  how_bookings_done: MyString
+  company_name: MyString
+  company_website: MyString
+  name: MyString
+  preferred_contact_method: MyString

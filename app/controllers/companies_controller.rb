@@ -36,9 +36,6 @@ class CompaniesController < ApplicationController
     end
   end
 
-  def success
-  end
-
 
   private
 

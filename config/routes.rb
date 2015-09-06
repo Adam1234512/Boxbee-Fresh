@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: { registrations: "registrations" }
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -14,8 +15,9 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  get 'companies/success', to: 'companies#success'
-  resources :companies
+  resources :companies, except: [:index]
+  get '/beta-program' => 'beta_surveys#new'
+  resources :beta_surveys, only: [:new, :create]
 
 
   # Example resource route with options:
