@@ -8,6 +8,16 @@
 require 'faker'
 
 50.times do
+  user = User.new(
+    first_name: Faker::Name.name.split(" ")[0],
+    last_name: Faker::Name.name.split(" ")[0],
+    email: Faker::Internet.email,
+    phone: Faker::PhoneNumber.cell_phone,
+    password: Faker::Lorem.characters(10)
+  )
+  user.skip_confirmation!
+  user.save!
+
   company = Company.new(
     name: Faker::Company.name,
     city: Faker::Address.city,
@@ -18,17 +28,9 @@ require 'faker'
     website_url: Faker::Internet.domain_name,
     logo: Faker::Company.logo
   )
+  company.user = user
   company.save!
 
-  user = User.new(
-    first_name: Faker::Name.name.split(" ")[0],
-    last_name: Faker::Name.name.split(" ")[0],
-    email: Faker::Internet.email,
-    phone: Faker::PhoneNumber.cell_phone,
-    password: Faker::Lorem.characters(10)
-  )
-  user.skip_confirmation!
-  user.company = company
-  user.save!
+
 end
 users = User.all

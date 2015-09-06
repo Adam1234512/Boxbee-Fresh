@@ -1,6 +1,11 @@
 class CompaniesController < ApplicationController
   def index
-    @companies = Company.all
+    @companies = Company.search(params[:search])
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def new
@@ -14,18 +19,31 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.build(company_params)
+    @company = Company.new(company_params)
+    @company.user = current_user
+    @company.guest = guest_user
     if @company.save
+      session[:company_id] = @company.id
       flash[:notice] = "You successfully added your company"
-      redirect_to root_path #need to fix this.
+      if current_user
+        redirect_to @company
+      else
+        redirect_to new_user_registration_path
+      end
     else
       flash[:error] = "There was an error adding your company. Please try again."
       render :new
     end
   end
 
+  def success
+  end
+
+
   private
 
   def company_params
     params.require(:company).permit(:name, :website_url, :description, :city, :zip, :state, :country, :logo)
+  end
+
 end

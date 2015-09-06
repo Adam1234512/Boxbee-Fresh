@@ -1,0 +1,42 @@
+<%= form_for @company do |f| %>
+  <!-- Error handling -->
+  <% if @company.errors.any? %>
+    <div class="alert alert-danger">
+      <h4>There are <%= pluralize(@company.errors.count, "error") %>.</h4>
+      <ul>
+        <% @company.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <!-- Main form -->
+  <%= form_group_tag(@company.errors[:name]) do %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: "Enter the name of your company", required: true %>
+  <% end %>
+
+  <%= form_group_tag(@company.errors[:description]) do %>
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control', placeholder: "Enter a short description of why yours is the best!", cols: 20, rows: 3, required: true %>
+  <% end %>
+
+  <%= form_group_tag(@company.errors[:website_url]) do %>
+    <%= f.label :website_url %>
+    <%= f.url_field :website_url, class: 'form-control', placeholder: "What's your website full URL? E.g. 'http://www.boxbee.com'", required: true %>
+  <% end %>
+
+  <%= form_group_tag(@company.errors[:city]) do %>
+    <%= f.label :city %>
+    <%= f.text_field :city, class: 'form-control', placeholder: "What cities do you serve, separated by commas E.g. 'Boston, New York, Chicago'", required: true %>
+  <% end %>
+
+  <%= form_group_tag(@company.errors[:country]) do %>
+    <%= f.label :country %>
+    <%= f.text_field :country, class: 'form-control', placeholder: "What country are you in?", required: true %>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.submit "Save", class: 'btn btn-success' %>
+  </div>
+<% end %>

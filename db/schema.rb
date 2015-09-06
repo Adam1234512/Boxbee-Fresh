@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150905025925) do
+ActiveRecord::Schema.define(version: 20150906025447) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -24,10 +24,20 @@ ActiveRecord::Schema.define(version: 20150905025925) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "logo"
+    t.integer  "user_id"
+    t.integer  "guest_id"
+  end
+
+  add_index "companies", ["guest_id"], name: "index_companies_on_guest_id"
+  add_index "companies", ["user_id"], name: "index_companies_on_user_id"
+
+  create_table "guests", force: :cascade do |t|
+    t.string   "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer  "company_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone"
@@ -52,7 +62,6 @@ ActiveRecord::Schema.define(version: 20150905025925) do
     t.datetime "locked_at"
   end
 
-  add_index "users", ["company_id"], name: "index_users_on_company_id"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 

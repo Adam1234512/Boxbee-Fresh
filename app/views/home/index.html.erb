@@ -1,13 +1,13 @@
 <div class="centered-title">
-  <h1>Find on demand storage near you.</h1>
+  <h1>Boxbee powers on demand storage.</h1>
+  <h3>Find on demand storage in your city.</h3>
+  <small>Storage owners: <%=link_to "Get listed", root_path %> and use our software</small>
 </div>
 
-<%= form_tag companies_path, method: 'get', id: "companies-search" do %>
+<%= form_tag companies_path, method: 'get', id: "companies-search", remote: true do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", name: nil %>
   </p>
-  <div id="companies">
-    <%= render partial: 'companies/company', collection: @companies %>
-  </div>
+  <div id="companies"></div>
 <% end %>
