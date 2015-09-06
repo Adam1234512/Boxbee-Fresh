@@ -35,6 +35,9 @@ gem 'figaro'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'fog'
+#images New
+gem 'paperclip'
+gem 'aws-sdk', '<2.0'
 
 #Seeding, Testing etc.
 gem 'faker'

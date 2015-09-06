@@ -26,6 +26,11 @@
     <%= f.url_field :website_url, class: 'form-control', placeholder: "What's your website full URL? E.g. 'http://www.boxbee.com'", required: true %>
   <% end %>
 
+  <div class="form-group">
+    <%= f.label :logo %>
+    <%= f.file_field :logo %>
+  </div>
+
   <%= form_group_tag(@company.errors[:city]) do %>
     <%= f.label :city %>
     <%= f.text_field :city, class: 'form-control', placeholder: "What cities do you serve, separated by commas E.g. 'Boston, New York, Chicago'", required: true %>

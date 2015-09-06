@@ -1,5 +1,5 @@
 class AddLogoToCompanies < ActiveRecord::Migration
   def change
-    add_column :companies, :logo, :string
+    add_attachment :companies, :logo
   end
 end

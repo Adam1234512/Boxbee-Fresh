@@ -2,7 +2,7 @@
   <ul class="list-group">
     <li class="list-group-item">
       <div class="media-left">
-        <%= image_tag(company.logo.listing.url) if company.logo? %>
+        <%= image_tag(company.logo.url(:listing)) if company.logo? %>
       </div>
       <div class="media-body">
         <h4><%="#{company.name}"%></h4>
