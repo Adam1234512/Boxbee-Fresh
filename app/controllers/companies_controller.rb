@@ -14,9 +14,19 @@ class CompaniesController < ApplicationController
   end
 
   def edit
+    @company = current_user.companies.find(params[:id])
   end
 
   def update
+    @company = current_user.companies.find(params[:id])
+    if @company.update_attributes(company_params)
+      flash[:notice] = "Your company profile was successfully updated."
+      redirect_to @company
+    else
+      flash[:error] = "Your post could not be updated. Please try again."
+      render :edit
+    end
+
   end
 
   def create
