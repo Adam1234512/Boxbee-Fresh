@@ -1,1 +1,7 @@
-$('#companies').html("<%= escape_javascript(render partial: 'companies/company', collection: @companies) %>");
+<% if @no_companies %>
+  $('#companies').html("<%= escape_javascript(render partial: 'companies/no_companies') %>");
+  console.log('triggered no_companies');
+<% else %>
+  $('#companies').html("<%= escape_javascript(render partial: 'companies/company', collection: @companies) %>");
+  console.log('hello');
+<% end %>

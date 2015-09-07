@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
   def index
     @companies = Company.search(params[:search])
+    @no_companies = @companies.length < 1
 
     respond_to do |format|
       format.js

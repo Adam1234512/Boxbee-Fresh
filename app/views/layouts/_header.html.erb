@@ -4,7 +4,7 @@
       <%= image_tag("logo-home.png") %>
     </strong>
     <% if current_user %>
-      <%= link_to "Logout", destroy_user_session_path %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav navbar-right"%>
     <% else %>
       <%= link_to "Are you a storage company?", root_path, class: "btn-amber" %>
       <%= link_to "Legacy customers", root_path, class: "btn-login" %>

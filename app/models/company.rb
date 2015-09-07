@@ -1,6 +1,7 @@
 class Company < ActiveRecord::Base
   belongs_to :user
   belongs_to :guest
+  has_many :cities
 
 
   # image stuff
@@ -12,10 +13,10 @@ class Company < ActiveRecord::Base
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
 
   def self.search(search)
-    if search
-      where('city LIKE ?', "%#{search}%")
+    if search.length > 0
+      joins(:cities).where("cities.name LIKE ?", "%#{search}%")
     else
-      # scoped
+      none
     end
   end
 end

@@ -2,18 +2,12 @@
 
 one:
   name: MyString
-  city: MyString
-  zip: MyString
-  website_url: MyString
-  description: MyText
   state: MyString
   country: MyString
+  company_id: 
 
 two:
   name: MyString
-  city: MyString
-  zip: MyString
-  website_url: MyString
-  description: MyText
   state: MyString
   country: MyString
+  company_id: 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150906192332) do
+ActiveRecord::Schema.define(version: 20150906201430) do
 
   create_table "beta_surveys", force: :cascade do |t|
     t.boolean  "currently_offer_storage"
@@ -27,14 +27,22 @@ ActiveRecord::Schema.define(version: 20150906192332) do
     t.text     "how_bookings_done",        default: "--- []\n"
   end
 
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.string   "state"
+    t.string   "country"
+    t.integer  "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "cities", ["company_id"], name: "index_cities_on_company_id"
+
   create_table "companies", force: :cascade do |t|
     t.string   "name"
-    t.string   "city"
     t.string   "zip"
     t.string   "website_url"
     t.text     "description"
-    t.string   "state"
-    t.string   "country"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "user_id"

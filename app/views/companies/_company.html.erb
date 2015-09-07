@@ -6,7 +6,12 @@
       </div>
       <div class="media-body">
         <h4><%="#{company.name}"%></h4>
-        <%="#{company.description}"%> <%="Located in: #{company.city}, #{company.state}."%>
+        <p><%="#{company.description}"%></p><br/>
+        Serving the following cities:
+        <% company.cities.each do |city| %>
+          <%= "#{city.name} " %>
+        <% end %>
+
       </div>
       <div class="media-right">
         <%= button_to "Visit company", "#{company.website_url}", class: "btn-amber"%>
