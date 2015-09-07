@@ -1,0 +1,6 @@
+<h1>Edit Company Profile</h1>
+<p>
+  <%= "#{@company.name}" %>
+</p>
+
+<%= render partial: 'form', locals: {company: @company} %>
