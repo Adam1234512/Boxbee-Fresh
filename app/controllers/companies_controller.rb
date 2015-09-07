@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
   def index
     @companies = Company.search(params[:search])
+    @companies_all = Company.all
     @no_companies = @companies.length < 1
 
     respond_to do |format|

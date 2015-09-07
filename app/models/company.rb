@@ -14,7 +14,7 @@ class Company < ActiveRecord::Base
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
 
   def self.search(search)
-    if search.length > 0
+    if search 
       joins(:cities).where("cities.name LIKE ?", "%#{search}%")
     else
       none

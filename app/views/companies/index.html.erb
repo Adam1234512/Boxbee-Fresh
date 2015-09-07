@@ -1,2 +1,8 @@
-<h1>Companies#index</h1>
-<p>Find me in app/views/companies/index.html.erb</p>
+<h1>Companies index</h1>
+<small>Available to admins only.</small><br/>
+
+<h3>Stats</h3>
+<%= "Number of companies: #{@companies_all.all.count}" %>
+
+<h3>List of companies</h3>
+<%= render partial: 'company', collection: @companies_all %>
