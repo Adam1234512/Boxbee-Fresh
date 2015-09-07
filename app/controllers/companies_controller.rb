@@ -37,6 +37,12 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def show
+    @company = current_user.companies.find(params[:id])
+    @user = current_user
+    session[:company_id] = @company.id
+  end
+
 
   private
 

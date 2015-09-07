@@ -2,6 +2,7 @@ class Company < ActiveRecord::Base
   belongs_to :user
   belongs_to :guest
   has_many :cities
+  has_many :claims
 
 
   # image stuff
@@ -18,5 +19,13 @@ class Company < ActiveRecord::Base
     else
       none
     end
+  end
+
+  def claimed?
+    self.claims.where(successfully_claimed: true)
+  end
+
+  def claimed_by?(user)
+    self.claimed?.where(user_id: user.id)
   end
 end
