@@ -1,13 +1,13 @@
 <header id="header">
   <div class="header-content">
     <strong class="logo">
-      <%= image_tag("logo-home.png") %>
+      <%= link_to image_tag("logo-home.png"), root_path %>
     </strong>
     <% if current_user %>
       <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav navbar-right"%>
     <% else %>
-      <%= link_to "Are you a storage company?", root_path, class: "btn-amber" %>
-      <%= link_to "Legacy customers", root_path, class: "btn-login" %>
+      <%= link_to "Are you a storage company?", business_path, class: "btn-amber" %>
+      <%= link_to "Current Customers", current_customers_path, class: "btn-login" %>
     <% end %>
   </div>
 </header>

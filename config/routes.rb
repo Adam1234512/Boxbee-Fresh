@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/beta-program' => 'beta_surveys#new'
   resources :beta_surveys, only: [:new, :create]
   get '/business' => 'static_pages#business'
+  get '/current_customers' => 'static_pages#legacy'
 
 
   # Example resource route with options:
