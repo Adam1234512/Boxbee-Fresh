@@ -1,0 +1,22 @@
+<h2><%="#{@user.first_name} #{@user.last_name}"%></h2>
+
+<h3>Profile information</h3>
+Email address on file: <%= "#{@user.email}" %><br/>
+Member since: <%= "#{@user.created_at.strftime('%m/%d/%Y')}" %><br/>
+
+<h3>Companies</h3>
+<ul class="list-group">
+  <% @companies.each do |company| %>
+    <li class="list-group-item">
+      <div class="media-left">
+        <%= image_tag(company.logo.url(:listing)) if company.logo? %>
+      </div>
+      <div class="media-body">
+        <%= "#{company.name}" %>
+      </div>
+      <div class="media-right">
+        <%= link_to "View/edit listing", company_path(company) %>
+      </div>
+    </li>
+  <% end %>
+</ul>
