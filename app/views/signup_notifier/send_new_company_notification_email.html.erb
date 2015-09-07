@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>New company profile has been submitted!</h1>
+    <p>A new company listing has been created. See the details below!  </p>
+    <ul>
+      <li>Company: <%= "#{@company.name}" %></li>
+      <li>URL: <%= "#{@company.website_url}" %></li>
+    </ul>
+    <p>
+      Navigate to the Boxbee community to learn more about the company and the user information.
+      <%= link_to "Company profile", @company %><br/>
+    </p>
+  </body>
+</html>

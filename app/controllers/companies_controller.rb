@@ -41,6 +41,7 @@ class CompaniesController < ApplicationController
       else
         redirect_to new_user_registration_path
       end
+      SignupNotifier.send_new_company_notification_email(@company).deliver_now
     else
       flash[:error] = "There was an error adding your company. Please try again."
       render :new
