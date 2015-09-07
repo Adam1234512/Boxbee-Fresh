@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+  before_action :authenticate_user!
   def index
     @companies = Company.search(params[:search])
     @companies_all = Company.all
@@ -20,7 +21,9 @@ class CompaniesController < ApplicationController
 
   def update
     @company = current_user.companies.find(params[:id])
-    if @company.update_attributes(company_params)
+    @company.cities = Company.parse_cities(params)
+    @company.assign_attributes(company_params)
+    if @company.save 
       flash[:notice] = "Your company profile was successfully updated."
       redirect_to @company
     else
@@ -34,6 +37,7 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
     @company.user = current_user
     @company.guest = guest_user
+    @company.cities = Company.parse_cities(params)
     if @company.save
       session[:company_id] = @company.id
       flash[:notice] = "You successfully added your company"
@@ -59,7 +63,7 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:name, :website_url, :description, :city, :zip, :state, :country, :logo)
+    params.require(:company).permit(:name, :website_url, :description, :logo)
   end
 
 end

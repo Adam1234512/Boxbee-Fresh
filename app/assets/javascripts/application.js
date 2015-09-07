@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require beta_surveys
+//= require bootstrap-tagsinput
 //= require_tree .

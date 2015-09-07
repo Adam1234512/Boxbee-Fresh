@@ -42,6 +42,9 @@ gem 'aws-sdk', '<2.0'
 #Seeding, Testing etc.
 gem 'faker'
 
+#UI
+gem 'bootstrap-tagsinput-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

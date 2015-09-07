@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150907014135) do
+ActiveRecord::Schema.define(version: 20150907054107) do
 
   create_table "beta_surveys", force: :cascade do |t|
     t.boolean  "currently_offer_storage"
@@ -31,12 +31,17 @@ ActiveRecord::Schema.define(version: 20150907014135) do
     t.string   "name"
     t.string   "state"
     t.string   "country"
-    t.integer  "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "cities", ["company_id"], name: "index_cities_on_company_id"
+  create_table "cities_companies", force: :cascade do |t|
+    t.integer "company_id"
+    t.integer "city_id"
+  end
+
+  add_index "cities_companies", ["city_id"], name: "index_cities_companies_on_city_id"
+  add_index "cities_companies", ["company_id"], name: "index_cities_companies_on_company_id"
 
   create_table "claims", force: :cascade do |t|
     t.boolean  "successfully_claimed"
@@ -51,7 +56,6 @@ ActiveRecord::Schema.define(version: 20150907014135) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
-    t.string   "zip"
     t.string   "website_url"
     t.text     "description"
     t.datetime "created_at",        null: false
