@@ -1,0 +1,106 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require bootstrap-tagsinput
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+/* general styles */
+ .body-container {
+   padding-top: 90px;
+ }
+ .centered-title {
+   text-align:center;
+ }
+
+// Fonts
+@font-face {
+  font-family: "adelle-sans-light";
+  src: url(font-path("adelle-sans-light.otf"));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "adelle-sans-regular";
+  src: url(font-path("adelle-sans-regular.otf"));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "icomoon";
+  src: url(font-path("icomoon.eot"));
+  src: url(font-path("icomoon.eot?#iefix")) format("embedded-opentype"), url(font-path("icomoon.woff")) format("woff"), url(font-path("icomoon.ttf")) format("truetype"), url(font-path("icomoon.svgicomoon")) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "latolight";
+  src: url(font-path("lato-light-webfont.eot"));
+  src: url(font-path("lato-light-webfont.eot?#iefix")) format("embedded-opentype"), url(font-path("lato-light-webfont.woff")) format("woff"), url(font-path("lato-light-webfont.ttf")) format("truetype"), url(font-path("lato-light-webfont.svglato-light-webfont")) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "latoblack";
+  src: url(font-path("lato-black-webfont.eot"));
+  src: url(font-path("lato-black-webfont.eot?#iefix")) format("embedded-opentype"), url(font-path("lato-black-webfont.woff")) format("woff"), url(font-path("lato-black-webfont.ttf")) format("truetype"), url(font-path("lato-black-webfont.svglato-black-webfont")) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "latoregular";
+  src: url(font-path("lato-regular-webfont.eot"));
+  src: url(font-path("lato-regular-webfont.eot?#iefix")) format("embedded-opentype"), url(font-path("lato-regular-webfont.woff")) format("woff"), url(font-path("lato-regular-webfont.ttf")) format("truetype"), url(font-path("lato-regular-webfont.svglato-regular-webfont")) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "brandon_grotesquebold";
+  src: url(font-path("brandon_bld_copy-webfont.eot"));
+  src: url(font-path("brandon_bld_copy-webfont.eot?#iefix")) format("embedded-opentype"), url(font-path("brandon_bld_copy-webfont.woff")) format("woff"), url(font-path("brandon_bld_copy-webfont.ttf")) format("truetype"), url(font-path("brandon_bld_copy-webfont.svgbrandon_bld_copy-webfont")) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "varela_roundregular";
+  src: url(font-path("varelaround-regular-webfont.eot"));
+  src: url(font-path("varelaround-regular-webfont.eot?#iefix")) format("embedded-opentype"), url(font-path("varelaround-regular-webfont.woff")) format("woff"), url(font-path("varelaround-regular-webfont.ttf")) format("truetype"), url(font-path("varelaround-regular-webfont.svgvarelaround-regular-webfont")) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "tradegothicbold";
+  src: url(font-path("tradegothic-boldtwo_copy-webfont.eot"));
+  src: url(font-path("tradegothic-boldtwo_copy-webfont.eot?#iefix")) format("embedded-opentype"), url(font-path("tradegothic-boldtwo_copy-webfont.woff")) format("woff"), url(font-path("tradegothic-boldtwo_copy-webfont.ttf")) format("truetype"), url(font-path("tradegothic-boldtwo_copy-webfont.svgtradegothic-boldtwo_copy-webfont")) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "brandon_grotesque_regularRg";
+  src: url(font-path("brandon_reg_copy-webfont.eot"));
+  src: url(font-path("brandon_reg_copy-webfont.eot?#iefix")) format("embedded-opentype"), url(font-path("brandon_reg_copy-webfont.woff")) format("woff"), url(font-path("brandon_reg_copy-webfont.ttf")) format("truetype"), url(font-path("brandon_reg_copy-webfont.svgbrandon_reg_copy-webfont")) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "tradegothiclight_oblique";
+  src: url(font-path("tradegothic-lightoblique_copy-webfont.eot"));
+  src: url(font-path("tradegothic-lightoblique_copy-webfont.eot?#iefix")) format("embedded-opentype"), url(font-path("tradegothic-lightoblique_copy-webfont.woff")) format("woff"), url(font-path("tradegothic-lightoblique_copy-webfont.ttf")) format("truetype"), url(font-path("tradegothic-lightoblique_copy-webfont.svgtradegothic-lightoblique_copy-webfont")) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}

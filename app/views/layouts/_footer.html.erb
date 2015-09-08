@@ -1,0 +1,30 @@
+<!-- footer of the page -->
+<footer id="footer">
+	<div class="footer-frame">
+	  <div class="container holder">
+	    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 box">
+          <h2>Legal</h2>
+          <p>
+            <%= link_to "Terms of Service", terms_path %><br/>
+            <%= link_to "Privacy", privacy_path %>
+          </p>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 box">
+          <h2>Headquarters</h2>
+          <p>
+            220 Water Street<br>
+            Brooklyn, NY 11201
+          </p>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 box">
+          <h2>Contact</h2>
+          <p>
+            <%= mail_to 'boxbeeinc@boxbee.com' %><br/>
+            (888) 880-2074
+          </p>
+        </div>
+	    </div>
+	  </div>
+	</div>
+</footer>

@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:edit]
   def index
     @companies = Company.search(params[:search])
     @companies_all = Company.all
@@ -23,7 +23,7 @@ class CompaniesController < ApplicationController
     @company = current_user.companies.find(params[:id])
     @company.cities = Company.parse_cities(params)
     @company.assign_attributes(company_params)
-    if @company.save 
+    if @company.save
       flash[:notice] = "Your company profile was successfully updated."
       redirect_to @company
     else
@@ -54,7 +54,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @company = current_user.companies.find(params[:id])
+    @company = Company.find(params[:id])
     @user = current_user
     session[:company_id] = @company.id
   end

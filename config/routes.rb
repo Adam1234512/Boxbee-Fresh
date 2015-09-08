@@ -24,6 +24,10 @@ Rails.application.routes.draw do
   get '/business' => 'static_pages#business'
   get '/current_customers' => 'static_pages#legacy'
 
+  #Legal
+  get 'terms' => 'static_pages#terms'
+  get 'privacy' => 'static_pages#terms'
+
 
   # Example resource route with options:
   #   resources :products do
