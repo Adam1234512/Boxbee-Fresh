@@ -20,6 +20,7 @@ class RegistrationsController < Devise::RegistrationsController
       flash[:notice] = "You successfully added your company"
     else
       Rails.logger.debug("Registrations controller has NOT identified a beta_survey_id")
+      flash[:notice] = "You successfully added your company"
       beta_program_path
     end
   end

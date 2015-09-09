@@ -24,7 +24,7 @@
    padding-top: 90px;
  }
  .centered-title {
-   text-align:center;
+   text-align:center !important;
  }
 
 // Fonts
@@ -112,4 +112,8 @@
   margin-right:auto;
   display:block;
   margin-bottom:30px;
+}
+//Flashes
+.flashes {
+  margin-top: 129px;
 }

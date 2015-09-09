@@ -14,7 +14,13 @@ class Company < ActiveRecord::Base
 
   def self.search(search)
     if search
-      joins(:cities).where("cities.name LIKE ?", "%#{search}%")
+      if search.match("^([a-zA-Z]+\s*)+,\s[a-zA-Z]+,\s([a-zA-Z]+\s*)+$")
+        search_array = search.split(",")
+        joins(:cities).where("cities.name LIKE ?", "%#{search_array[0]}%").where("cities.state LIKE ?", "%#{search_array[1]}%").where("cities.country LIKE ?", "%#{search_array[2]}%")
+      else
+        search = search.sub(/\s+\Z/, "")
+        joins(:cities).where("cities.name LIKE ?", "%#{search}%")
+      end
     else
       none
     end

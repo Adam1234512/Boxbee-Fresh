@@ -49,19 +49,19 @@ class CompaniesController < ApplicationController
         #create a user for them
         @beta_survey = BetaSurvey.find_by_id(session[:beta_survey_id])
         u = User.new(first_name: "#{@beta_survey.first_name}", last_name: "#{@beta_survey.last_name}", email: "#{@beta_survey.email}")
-        # u.skip_confirmation! Took this out because devise confirmable disabled. 
+        # u.skip_confirmation! Took this out because devise confirmable disabled.
         u.save!
         @company.user = u
         @company.save!
         redirect_to root_path
         session[:beta_survey_id] = nil
+        flash[:notice] = "You successfully added your company"
         Rails.logger.debug("Check to make sure session[:beta_survey_id] set to nil #{session[:beta_survey_id]}")
       else
         Rails.logger.debug("Looks like beta_survey_id is NOT present at companies#create")
         #let them create user manually
         session[:company_id] = @company.id
         Rails.logger.debug("Created session[:company_id] #{session[:company_id]}")
-        flash[:notice] = "You successfully added your company"
         redirect_to new_user_registration_path
       end
       SignupNotifier.send_new_company_notification_email(@company).deliver_now

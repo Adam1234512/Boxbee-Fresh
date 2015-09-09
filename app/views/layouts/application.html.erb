@@ -8,23 +8,23 @@
 </head>
 <body>
 <%= render partial: 'layouts/header' %>
-  <% if flash[:notice]  %>
-      <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <%= flash[:notice] %>
-      </div>
-  <% elsif flash[:error]  %>
-    <div class="alert alert-danger">
+<% if flash[:notice]  %>
+    <div class="alert alert-success flashes">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <%= flash[:error] %>
+      <%= flash[:notice] %>
     </div>
-  <% elsif flash[:alert]  %>
-    <div class="alert alert-danger">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <%= flash[:alert] %>
-    </div>
-  <% end %>
-  <%= yield %>
+<% elsif flash[:error]  %>
+  <div class="alert alert-danger flashes">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%= flash[:error] %>
+  </div>
+<% elsif flash[:alert]  %>
+  <div class="alert alert-danger flashes">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+<%= yield %>
 <%=render partial: 'layouts/footer' %>
 </body>
 </html>
