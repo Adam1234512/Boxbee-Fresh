@@ -10,8 +10,17 @@ class RegistrationsController < Devise::RegistrationsController
     c.save
   end
 
+
   protected
 
+  def after_inactive_sign_up_path_for(resource)
+    if session[:beta_survey_id]
+      root_path
+      flash[:notice] = "You successfully added your company"
+    else
+      beta_program_path
+    end
+  end
   # def after_sign_up_path_for(resource)
   #   if session[:company_id]
   #     # find the current_user

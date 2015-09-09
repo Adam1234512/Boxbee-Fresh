@@ -13,7 +13,11 @@
   <!-- Main form -->
   <%= form_group_tag(company.errors[:name]) do %>
     <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control', placeholder: "Enter the name of your company", required: true %>
+    <% if @session_company_info %>
+      <%= f.text_field :name, value: "#{@session_company_info[0]}", class: 'form-control', placeholder: "Enter the name of your company", required: true %>
+    <% else %>
+      <%= f.text_field :name, class: 'form-control', placeholder: "Enter the name of your company", required: true %>
+    <% end %>
   <% end %>
 
   <%= form_group_tag(company.errors[:description]) do %>
@@ -23,7 +27,11 @@
 
   <%= form_group_tag(company.errors[:website_url]) do %>
     <%= f.label :website_url %>
-    <%= f.url_field :website_url, class: 'form-control', placeholder: "What's your website full URL? E.g. 'http://www.boxbee.com'", required: true %>
+    <% if @session_company_info %>
+      <%= f.url_field :website_url, value: "#{@session_company_info[1]}", class: 'form-control', placeholder: "What's your website full URL? E.g. 'http://www.boxbee.com'", required: true %>
+    <% else %>
+      <%= f.url_field :website_url, class: 'form-control', placeholder: "What's your website full URL? E.g. 'http://www.boxbee.com'", required: true %>
+    <% end %>
   <% end %>
 
   <div class="form-group">
@@ -32,10 +40,13 @@
   </div>
 
   <div class="form-group">
-    <%= f.text_field :cities, value: '', 'data-role'=>'tagsinput' %>
-  </div>
+    <%= f.label "Cities served" %><br/>
+    <%= f.text_field :cities, value: '', placeholder: 'Enter the cities you serve, separated by commas.', 'data-role'=>'tagsinput' %>
+  </div>  
 
   <div class="form-group">
-    <%= f.submit "Save", class: 'btn btn-success' %>
+    <%= f.submit "Publish", class: 'btn-login' %>
   </div>
+  <br/>
+  <br/>
 <% end %>

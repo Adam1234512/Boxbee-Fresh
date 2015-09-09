@@ -1,8 +1,6 @@
-<h1>Companies index</h1>
-<small>Available to admins only.</small><br/>
+<div class="container holder">
+  <p><%= "Results returned for \"#{@city}\": #{@companies.all.count}" %></p>
 
-<h3>Stats</h3>
-<%= "Number of companies: #{@companies_all.all.count}" %>
-
-<h3>List of companies</h3>
-<%= render partial: 'company', collection: @companies_all %>
+  <h2>List of companies</h2>
+    <%= render partial: 'company', collection: @companies %>
+</div>

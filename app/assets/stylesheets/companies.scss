@@ -8,3 +8,62 @@
   margin-left:auto;
   margin-right:auto;
 }
+
+.company-result {
+  height: 350px;
+}
+
+.company-logo {
+  height: 60px;
+}
+
+// .panel-body .company {
+//   width:100%;
+// }
+
+.centered {
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.btn-company_url {
+  float: none !important;
+  margin: 10px 5px
+}
+
+.company p {
+  text-align:center;
+  font-size: 14px;
+}
+
+.company {
+  position: relative;
+  height: 100%;
+}
+
+.company .bottom-placeholder {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-left:-15px;
+  margin-bottom:15px;
+}
+
+.panel-body .company {
+  height: 100% !important;
+}
+
+.company h1, h2, h3, h4 {
+  font-family: 'adelle-sans-light' !important;
+}
+
+.new-company h1, h2, h3, h4 {
+  font-family: 'adelle-sans-light' !important;
+}
+
+//form
+.bootstrap-tagsinput {
+  width: 100% !important;
+}

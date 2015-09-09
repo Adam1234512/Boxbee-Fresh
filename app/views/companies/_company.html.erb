@@ -1,21 +1,22 @@
-<%= content_tag :div, class: 'media', id: "company-#{company.id}" do %>
-  <ul class="list-group">
-    <li class="list-group-item">
-      <div class="media-left">
+<%= content_tag :div, class: 'col-sm-4 col-md-4 col-lg-4', id: "company-#{company.id}" do %>
+  <div class="panel panel-default company-result">
+    <div class="panel-body company">
+      <div class="company-logo">
         <%= image_tag(company.logo.url(:listing)) if company.logo? %>
       </div>
-      <div class="media-body">
-        <h4><%="#{company.name}"%></h4>
-        <p><%="#{company.description}"%></p><br/>
-        Serving the following cities:
+      <div class="centered">
+        <h4><%="#{company.name}"%></h4><br/>
+        <p><%="#{company.description}"%></p>
+      </div>
+      <div class="centered">
+        Serving the following cities:<br/>
         <% company.cities.each do |city| %>
           <%= "#{city.name} " %>
         <% end %>
-
       </div>
-      <div class="media-right">
-        <%= button_to "Visit company", "#{company.website_url}", class: "btn-amber"%>
+      <div class="centered bottom-placeholder">
+        <%= link_to "Visit company", "#{company.website_url}", class: "btn-login btn-company_url", target: '_blank'%>
       </div>
-    </li>
-  </ul>
+    </div>
+  </div>
 <% end %>

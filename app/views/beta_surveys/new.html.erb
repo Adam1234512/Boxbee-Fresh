@@ -1,89 +1,124 @@
-<div class="centered-title">
-  <h1>We Power On Demand Storage.</h1>
-  <p>To join the Boxbee Beta program, please fill out this form or email us at <%= mail_to "boxbeeinc@boxbee.com" %></p>
-</div>
+<div class="new-company container holder">
 
-<%= form_for @beta_survey do |f| %>
-  <!-- Error handling -->
-  <% if @beta_survey.errors.any? %>
-    <div class="alert alert-danger">
-      <h4>There are <%= pluralize(@beta_survey.errors.count, "error") %>.</h4>
-      <ul>
-        <% @beta_survey.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+    <div class="centered-form" id="beta-form">
+      <h1>Join Our Beta Program.</h1>
+      <p>We are creating software to allow you to run your own branded, on-demand storage service.
+        No software expertise required. To join the Boxbee Beta program, please fill out this form or email us at <%= mail_to "boxbeeinc@boxbee.com" %>
+      </p>
+
+      <%= form_for @beta_survey do |f| %>
+        <!-- Error handling -->
+        <% if @beta_survey.errors.any? %>
+          <div class="alert alert-danger">
+            <h4>There are <%= pluralize(@beta_survey.errors.count, "error") %>.</h4>
+            <ul>
+              <% @beta_survey.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+
+        <!-- Main form -->
+        <%= form_group_tag(@beta_survey.errors[:currently_offer_storage]) do %>
+          <%= f.label :currently_offer_storage, "Do you currently offer storage services to your customers?" %> <br />
+          <%= f.radio_button :currently_offer_storage, true, required: true %> Yes <br />
+          <%= f.radio_button :currently_offer_storage, false, required: true %> No <br />
+        <% end %>
+
+        <%= form_group_tag(@beta_survey.errors[:how_manage_warehouse]) do %>
+          <%= f.label :how_manage_warehouse, "If yes, how do you manage your warehouse?" %> <br />
+          <small>Please check all that apply.</small></br>
+          <%= f.check_box :how_manage_warehouse, {multiple: true}, "3rd party software" %> 3rd party software<br />
+          <%= f.check_box :how_manage_warehouse, {multiple: true}, "Our own software" %> Our own software<br />
+          <%= f.check_box :how_manage_warehouse, {multiple: true}, "Pen and paper" %> Pen and paper<br />
+          <%= f.check_box :how_manage_warehouse, {multiple: true}, "Spreadsheets" %> Spreadsheets<br />
+          <%= f.check_box :how_manage_warehouse, {multiple: true}, "Other" %> Other:
+          <input type="text" id="how_manage_warehouse_other_text" value="" class="form-control" onblur="updateCheckbox('how_manage_warehouse')" oninput="check('how_manage_warehouse')" >
+        <% end %>
+
+        <%= form_group_tag(@beta_survey.errors[:offer_transport]) do %>
+          <%= f.label :offer_transport, "Do you offer pickup and delivery to your customers? " %> <br />
+          <%= f.radio_button :offer_transport, true, required: true %> Yes <br />
+          <%= f.radio_button :offer_transport, false, required: true %> No <br />
+        <% end %>
+
+        <%= form_group_tag(@beta_survey.errors[:how_manage_vehicles]) do %>
+          <%= f.label :how_manage_vehicles, "If yes, how do you manage your vehicles and drivers?" %> <br />
+          <small>Please check all that apply.</small></br>
+          <%= f.check_box :how_manage_vehicles, {multiple: true}, "3rd party software" %> 3rd party software<br />
+          <%= f.check_box :how_manage_vehicles, {multiple: true}, "Our own software" %> Our own software<br />
+          <%= f.check_box :how_manage_vehicles, {multiple: true}, "Pen and paper" %> Pen and paper<br />
+          <%= f.check_box :how_manage_vehicles, {multiple: true}, "Spreadsheets" %> Spreadsheets<br />
+          <%= f.check_box :how_manage_vehicles, {multiple: true}, "Other" %> Other:
+          <input type="text" id="how_manage_vehicles_other_text" value="" class="form-control" onblur="updateCheckbox('how_manage_vehicles')" oninput="check('how_manage_vehicles')" >
+        <% end %>
+
+        <%= form_group_tag(@beta_survey.errors[:how_bookings_done]) do %>
+          <%= f.label :how_bookings_done, "If yes, how do customers currently make appointments for pickup and delivery?" %> <br />
+          <small>Please check all that apply.</small></br>
+          <%= f.check_box :how_bookings_done, {multiple: true}, "Website" %> Website<br />
+          <%= f.check_box :how_bookings_done, {multiple: true}, "Email" %> Email<br />
+          <%= f.check_box :how_bookings_done, {multiple: true}, "Phone" %> Phone<br />
+          <%= f.check_box :how_bookings_done, {multiple: true}, "Mobile App" %> Mobile App<br />
+          <%= f.check_box :how_bookings_done, {multiple: true}, "Other" %> Other:
+          <input type="text" id="how_bookings_done_other_text" value="" class="form-control" onblur="updateCheckbox('how_bookings_done')" oninput="check('how_bookings_done')" >
+        <% end %>
+
+        <%= form_group_tag(@beta_survey.errors[:company_name]) do %>
+          <%= f.label :company_name %>
+          <% if @company %>
+            <%= f.text_field :company_name, value: "#{@company.name}", class: 'form-control', placeholder: "What is the name of your company?", required: true %>
+          <% else %>
+            <%= f.text_field :company_name, class: 'form-control', placeholder: "What is the name of your company?", required: true %>
+          <% end %>
+        <% end %>
+
+        <%= form_group_tag(@beta_survey.errors[:company_website]) do %>
+          <%= f.label :company_website %>
+          <% if @company %>
+            <%= f.text_field :company_website, value: "#{@company.website_url}", class: 'form-control', placeholder: "What is your company's website?", required: true %>
+          <% else %>
+            <%= f.text_field :company_website, class: 'form-control', placeholder: "What is your company's website?", required: true %>
+          <% end %>
+        <% end %>
+
+        <%= form_group_tag(@beta_survey.errors[:first_name]) do %>
+          <% if @user %>
+            <%= f.hidden_field :first_name, value: "#{@user.first_name}" %>
+          <% else %>
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name, class: 'form-control', placeholder: "What is your first name?", required: true %>
+          <% end %>
+        <% end %>
+
+        <%= form_group_tag(@beta_survey.errors[:last_name]) do %>
+          <% if @user %>
+            <%= f.hidden_field :last_name, value: "#{@user.last_name}" %>
+          <% else %>
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name, class: 'form-control', placeholder: "What is your last name?", required: true %>
+          <% end %>
+        <% end %>
+
+        <%= form_group_tag(@beta_survey.errors[:email]) do %>
+          <% if @user %>
+            <%= f.hidden_field :email, value: "#{@user.email}"%>
+          <% else %>
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control', placeholder: "What is your email?", required: true %>
+          <% end %>
+        <% end %>
+
+        <%= form_group_tag(@beta_survey.errors[:preferred_contact_method]) do %>
+          <%= f.label :preferred_contact_method %>
+          <%= f.text_field :preferred_contact_method, class: 'form-control', placeholder: "What is the best way to reach you?", required: true %>
+        <% end %>
+
+
+        <div class="form-group">
+          <%= f.submit "Submit", class: 'btn-login' %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-
-  <!-- Main form -->
-  <%= form_group_tag(@beta_survey.errors[:currently_offer_storage]) do %>
-    <%= f.label :currently_offer_storage, "Do you currently offer storage services to your customers?" %> <br />
-    <%= f.radio_button :currently_offer_storage, true, required: true %> Yes <br />
-    <%= f.radio_button :currently_offer_storage, false, required: true %> No <br />
-  <% end %>
-
-  <%= form_group_tag(@beta_survey.errors[:how_manage_warehouse]) do %>
-    <%= f.label :how_manage_warehouse, "If yes, how do you manage your warehouse?" %> <br />
-    <small>Please check all that apply.</small></br>
-    <%= f.check_box :how_manage_warehouse, {multiple: true}, "3rd party software" %> 3rd party software<br />
-    <%= f.check_box :how_manage_warehouse, {multiple: true}, "Our own software" %> Our own software<br />
-    <%= f.check_box :how_manage_warehouse, {multiple: true}, "Pen and paper" %> Pen and paper<br />
-    <%= f.check_box :how_manage_warehouse, {multiple: true}, "Spreadsheets" %> Spreadsheets<br />
-    <%= f.check_box :how_manage_warehouse, {multiple: true}, "Other" %> Other:
-    <input type="text" id="how_manage_warehouse_other_text" value="" class="form-control" onblur="updateCheckbox('how_manage_warehouse')" oninput="check('how_manage_warehouse')" >
-  <% end %>
-
-  <%= form_group_tag(@beta_survey.errors[:offer_transport]) do %>
-    <%= f.label :offer_transport, "Do you offer pickup and delivery to your customers? " %> <br />
-    <%= f.radio_button :offer_transport, true, required: true %> Yes <br />
-    <%= f.radio_button :offer_transport, false, required: true %> No <br />
-  <% end %>
-
-  <%= form_group_tag(@beta_survey.errors[:how_manage_vehicles]) do %>
-    <%= f.label :how_manage_vehicles, "If yes, how do you manage your vehicles and drivers?" %> <br />
-    <small>Please check all that apply.</small></br>
-    <%= f.check_box :how_manage_vehicles, {multiple: true}, "3rd party software" %> 3rd party software<br />
-    <%= f.check_box :how_manage_vehicles, {multiple: true}, "Our own software" %> Our own software<br />
-    <%= f.check_box :how_manage_vehicles, {multiple: true}, "Pen and paper" %> Pen and paper<br />
-    <%= f.check_box :how_manage_vehicles, {multiple: true}, "Spreadsheets" %> Spreadsheets<br />
-    <%= f.check_box :how_manage_vehicles, {multiple: true}, "Other" %> Other:
-    <input type="text" id="how_manage_vehicles_other_text" value="" class="form-control" onblur="updateCheckbox('how_manage_vehicles')" oninput="check('how_manage_vehicles')" >
-  <% end %>
-
-  <%= form_group_tag(@beta_survey.errors[:how_bookings_done]) do %>
-    <%= f.label :how_bookings_done, "If yes, how do customers currently make appointments for pickup and delivery?" %> <br />
-    <small>Please check all that apply.</small></br>
-    <%= f.check_box :how_bookings_done, {multiple: true}, "Website" %> Website<br />
-    <%= f.check_box :how_bookings_done, {multiple: true}, "Email" %> Email<br />
-    <%= f.check_box :how_bookings_done, {multiple: true}, "Phone" %> Phone<br />
-    <%= f.check_box :how_bookings_done, {multiple: true}, "Mobile App" %> Mobile App<br />
-    <%= f.check_box :how_bookings_done, {multiple: true}, "Other" %> Other:
-    <input type="text" id="how_bookings_done_other_text" value="" class="form-control" onblur="updateCheckbox('how_bookings_done')" oninput="check('how_bookings_done')" >
-  <% end %>
-
-  <%= form_group_tag(@beta_survey.errors[:company_name]) do %>
-    <%= f.label :company_name %>
-    <%= f.text_field :company_name, class: 'form-control', placeholder: "What is the name of your company?", required: true %>
-  <% end %>
-
-  <%= form_group_tag(@beta_survey.errors[:company_website]) do %>
-    <%= f.label :company_website %>
-    <%= f.text_field :company_website, class: 'form-control', placeholder: "What is your company's website?", required: true %>
-  <% end %>
-
-  <%= form_group_tag(@beta_survey.errors[:name]) do %>
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control', placeholder: "What is your name?", required: true %>
-  <% end %>
-
-  <%= form_group_tag(@beta_survey.errors[:preferred_contact_method]) do %>
-    <%= f.label :preferred_contact_method %>
-    <%= f.text_field :preferred_contact_method, class: 'form-control', placeholder: "What is the best way to reach you?", required: true %>
-  <% end %>
-
-
-  <div class="form-group">
-    <%= f.submit "Save", class: 'btn btn-success' %>
-  </div>
-<% end %>
+</div>

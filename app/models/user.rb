@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
   has_many :companies
   has_many :claims
+
+  def password_required?
+     new_record? ? false : super
+  end
 end

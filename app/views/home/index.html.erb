@@ -14,7 +14,7 @@
 							<h3>Find an on demand storage company</h3>
 							<small>Storage companies: don't see yours listed here?</small><br/>
 							<small><%= link_to "Add your listing", new_company_path %></small>
-							<%= form_tag companies_path, method: 'get', id: "companies-search", remote: true do %>
+							<%= form_tag companies_path, method: 'get', id: "companies-search" do %>
 								<p>
 									<%= text_field_tag :search, nil, class: 'form-control', placeholder: 'Enter your city here:' %>
 									<%= submit_tag "Search", name: nil, class: 'btn-login' %>
@@ -59,19 +59,19 @@
 </section>
 
 <section id='investors'>
-        <div class='container holder'>
+        <div class='container'>
         	<br>
           <div class='row'>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 box">
+            <div class="col-lg-2 col-md-2  col-xs-4 box">
               <%= image_tag 'googleventures.png', class: 'google' %>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 box">
+            <div class="col-lg-2 col-md-2  col-xs-4 box">
               <%= image_tag 'metamorphic.png' %>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 box">
+            <div class="col-lg-2 col-md-2  col-xs-4 box">
               <%= image_tag 'floodgate.svg', height: '16px', class: 'floodgate' %>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 box lucas">
+            <div class="col-lg-2 col-md-2  col-xs-4 box lucas">
               <%= image_tag 'lucasventures.png', class: 'lucas' %>
             </div>
           </div>
