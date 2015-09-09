@@ -40,9 +40,9 @@
   </div>
 
   <div class="form-group">
-    <%= f.label "Cities served" %><br/>
-    <%= f.text_field :cities, value: '', placeholder: 'Enter the cities you serve, separated by commas.', 'data-role'=>'tagsinput' %>
-  </div>  
+    <%= f.label "Which city are you in?" %><br/>
+    <%= text_field_tag :cities, nil, class: "form-control cities-input", placeholder: "Enter the city you serve, in 'city, state, country' format." %>  
+  </div>
 
   <div class="form-group">
     <%= f.submit "Publish", class: 'btn-login' %>

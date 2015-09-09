@@ -10,14 +10,27 @@ class RegistrationsController < Devise::RegistrationsController
     c.save
   end
 
-
   protected
 
+  #This method is only applicable when Devise confirmable is turned on.
   def after_inactive_sign_up_path_for(resource)
     if session[:beta_survey_id]
+      Rails.logger.debug("Registrations controller has identified a beta_survey_id")
       root_path
       flash[:notice] = "You successfully added your company"
     else
+      Rails.logger.debug("Registrations controller has NOT identified a beta_survey_id")
+      beta_program_path
+    end
+  end
+
+  def after_sign_up_path_for(resource)
+    if session[:beta_survey_id]
+      Rails.logger.debug("Registrations controller has identified a beta_survey_id")
+      root_path
+      flash[:notice] = "You successfully added your company"
+    else
+      Rails.logger.debug("Registrations controller has NOT identified a beta_survey_id")
       beta_program_path
     end
   end

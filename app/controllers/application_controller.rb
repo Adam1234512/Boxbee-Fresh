@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
-  
+
   def guest_token
     session[:guest_token] ||= SecureRandom.uuid
   end

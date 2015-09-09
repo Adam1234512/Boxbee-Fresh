@@ -20,19 +20,21 @@ class Company < ActiveRecord::Base
     end
   end
 
-  def claimed?
-    self.claims.where(successfully_claimed: true)
-  end
-
-  def claimed_by?(user)
-    self.claimed?.where(user_id: user.id)
-  end
-
-  def self.parse_cities(params)
-    cities_string = params[:company][:cities]
+  def self.parse_city(params)
+    # needs to be updated for multiple cities
+    Rails.logger.debug("params: #{params[:cities]}")
+    location_categories = params[:cities].split(",")
     cities_object_array = []
-    cities_string.split(",").each do |city|
-      cities_object_array << City.where("cities.name LIKE ?", "%#{city}%").first
+    #Check to see if city exists
+    city_match = City.where("cities.name LIKE ?", "%#{location_categories[0]}").where("cities.name LIKE ?", "%#{location_categories[1]}").where("cities.state LIKE ?", "%#{location_categories[2]}").first
+    # if so, insert the matching city into the array
+    Rails.logger.debug("city_match: #{city_match}")
+    if city_match
+      cities_object_array << city_match.first
+    # if not, create a new one and insert into array
+    else
+      new_city = City.create(name: "#{location_categories[0]}", state: "#{location_categories[1]}", country: "#{location_categories[2]}")
+      cities_object_array << new_city
     end
     return cities_object_array
   end

@@ -15,5 +15,8 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require beta_surveys
+//= require twitter/typeahead
 //= require bootstrap-tagsinput
+//= require jquery-ui
+//= require autocomplete-rails
 //= require_tree .

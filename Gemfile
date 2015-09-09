@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'turbolinks'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -44,6 +45,8 @@ gem 'faker'
 
 #UI
 gem 'bootstrap-tagsinput-rails'
+gem 'twitter-typeahead-rails'
+gem 'rails4-autocomplete'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
