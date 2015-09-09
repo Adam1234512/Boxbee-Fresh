@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ClaimTest < ActiveSupport::TestCase
+class BetaSurveyNotifierTest < ActionMailer::TestCase
   # test "the truth" do
   #   assert true
   # end

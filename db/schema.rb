@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909035835) do
+ActiveRecord::Schema.define(version: 20150909053512) do
 
   create_table "beta_surveys", force: :cascade do |t|
     t.boolean  "currently_offer_storage"
@@ -44,17 +44,6 @@ ActiveRecord::Schema.define(version: 20150909035835) do
 
   add_index "cities_companies", ["city_id"], name: "index_cities_companies_on_city_id"
   add_index "cities_companies", ["company_id"], name: "index_cities_companies_on_company_id"
-
-  create_table "claims", force: :cascade do |t|
-    t.boolean  "successfully_claimed"
-    t.integer  "company_id"
-    t.integer  "user_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
-  add_index "claims", ["company_id"], name: "index_claims_on_company_id"
-  add_index "claims", ["user_id"], name: "index_claims_on_user_id"
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"

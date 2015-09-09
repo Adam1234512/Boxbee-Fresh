@@ -11,6 +11,7 @@ class BetaSurveysController < ApplicationController
     @beta_survey = BetaSurvey.new(beta_survey_params)
     if @beta_survey.save
       flash[:notice] = "Thank you. You successfully submitted your survey. Stay tuned for updates!"
+      BetaSurveyNotifier.send_beta_survey_notification_email(@beta_survey).deliver_now
       if session[:company_id]
         session[:company_id] = nil
         redirect_to root_path
