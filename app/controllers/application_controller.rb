@@ -4,16 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def guest_user
-    Guest.where(token: guest_token).first_or_create
-  end
-
-  private
-
-  def guest_token
-    session[:guest_token] ||= SecureRandom.uuid
-  end
-
   protected
 
   def configure_permitted_parameters

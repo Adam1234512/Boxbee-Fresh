@@ -10,6 +10,28 @@
       </ul>
     </div>
   <% end %>
+  <!-- User info collection -->
+  <%= label_tag :first_name, "First name" %>
+  <% if @session_user_info %>
+    <%= text_field_tag :first_name, value: "#{@session_user_info[0]}", class: 'form-control' %>
+  <% else %>
+    <%= text_field_tag :first_name, nil, class: 'form-control', placeholder: 'Please enter your first name' %>
+  <% end %>
+
+  <%= label_tag :last_name, "Last name" %>
+  <% if @session_user_info %>
+    <%= text_field_tag :last_name, value: "#{@session_user_info[1]}", class: 'form-control' %>
+  <% else %>
+    <%= text_field_tag :last_name, nil, class: 'form-control', placeholder: 'Please enter your last name' %>
+  <% end %>
+
+  <%= label_tag :email, "Email" %>
+  <% if @session_user_info %>
+    <%= text_field_tag :email, value: "#{@session_user_info[2]}", class: 'form-control' %>
+  <% else %>
+    <%= text_field_tag :email, nil, class: 'form-control', placeholder: 'Please enter your email' %>
+  <% end %>
+
   <!-- Main form -->
   <%= form_group_tag(company.errors[:name]) do %>
     <%= f.label :name %>
@@ -21,8 +43,8 @@
   <% end %>
 
   <%= form_group_tag(company.errors[:description]) do %>
-    <%= f.label :description %>
-    <%= f.text_area :description, class: 'form-control', placeholder: "Enter a short description of why yours is the best!", cols: 20, rows: 3, required: true %>
+    <%= f.label :description %><span class="countdown"></span>
+    <%= f.text_area :description, class: 'form-control', placeholder: "Enter a short description of why yours is the best!", cols: 20, rows: 3, maxlength: 90, required: true %>
   <% end %>
 
   <%= form_group_tag(company.errors[:website_url]) do %>
@@ -40,8 +62,19 @@
   </div>
 
   <div class="form-group">
-    <%= f.label "Which city are you in?" %><br/>
-    <%= text_field_tag :cities, nil, class: "form-control cities-input", placeholder: "Enter the city you serve, in 'city, state, country' format.", required: true%>  
+    <%= f.label "Which cities do you serve?" %><br/>
+    <%= text_field_tag :cities, nil, class: "form-control cities-input", placeholder: "Enter the city you serve, in 'city, state, country' format.", required: true%>
+    <%= link_to "I serve multiple cities", 'javascript:void(0);', id: 'serve-multiple-cities' %>
+    <div id="multiple-cities-container">
+      <small>Enter up to six more cities!</small>
+      <%= text_field_tag :cities2, nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
+      <%= text_field_tag :cities3, nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
+      <%= text_field_tag :cities4, nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
+      <%= text_field_tag :cities5, nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
+      <%= text_field_tag :cities6, nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
+      <%= text_field_tag :cities7, nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
+    </div>
+
   </div>
 
   <div class="form-group">

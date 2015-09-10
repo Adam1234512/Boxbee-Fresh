@@ -1,6 +1,5 @@
 class Company < ActiveRecord::Base
   belongs_to :user
-  belongs_to :guest
   has_and_belongs_to_many :cities
 
 
@@ -43,5 +42,19 @@ class Company < ActiveRecord::Base
       cities_object_array << new_city
     end
     return cities_object_array
+  end
+
+  def parse_and_create_user(params)
+    first_name = params[:first_name]
+    last_name = params[:last_name]
+    email = params[:email]
+    # be careful with this. The following lines could overwrite the user
+    user_from_params = User.find_by_email(email)
+    if user_from_params
+      user = user_from_params
+    else
+      user = User.create(first_name: first_name, last_name: last_name, email: email)
+    end
+    return user
   end
 end

@@ -9,9 +9,15 @@
       <% end %>
     </div>
   </div>
-  <p><%= "Results returned for \"#{@city}\": #{@companies.all.count}" %></p>
-  <small>Don't see your company here? <%= link_to 'Add your company now', new_company_path %></small>
-
-  <h2>List of companies</h2>
+  <% if @companies.length >= 1 %>
+    <p><%= "Results returned for \"#{@city}\": #{@companies.all.count}" %></p>
+    <small>Don't see your company here? <%= link_to 'Add your company now', new_company_path %></small>
+    <h2>List of companies</h2>
     <%= render partial: 'company', collection: @companies %>
+  <% else %>
+    <div style="padding-bottom:500px;">
+      <p><%= "No results were returned for \"#{@city}\"" %></p>
+      <small>Don't see your company here? <%= link_to 'Add your company now', new_company_path %></small>
+    </div>
+  <% end %>
 </div>

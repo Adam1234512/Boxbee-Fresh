@@ -48,6 +48,8 @@ gem 'bootstrap-tagsinput-rails'
 gem 'twitter-typeahead-rails'
 gem 'rails4-autocomplete'
 
+#analytics
+gem 'mixpanel-ruby'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

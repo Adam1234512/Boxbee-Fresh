@@ -72,3 +72,16 @@
 .bootstrap-tagsinput {
   width: 100% !important;
 }
+
+#multiple-cities-container {
+  display:none;
+}
+
+#multiple-cities-container, #serve-multiple-cities {
+  width: 50%;
+  max-height: 300px;
+}
+
+.countdown {
+  float:right;
+}

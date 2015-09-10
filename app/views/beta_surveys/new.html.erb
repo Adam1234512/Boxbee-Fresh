@@ -18,7 +18,6 @@
             </ul>
           </div>
         <% end %>
-
         <!-- Main form -->
         <%= form_group_tag(@beta_survey.errors[:currently_offer_storage]) do %>
           <%= f.label :currently_offer_storage, "Do you currently offer storage services to your customers?" %> <br />
@@ -77,9 +76,9 @@
         <%= form_group_tag(@beta_survey.errors[:company_website]) do %>
           <%= f.label :company_website %>
           <% if @company %>
-            <%= f.text_field :company_website, value: "#{@company.website_url}", class: 'form-control', placeholder: "What is your company's website?", required: true %>
+            <%= f.url_field :company_website, value: "#{@company.website_url}", class: 'form-control', placeholder: "What is your company's website?", required: true %>
           <% else %>
-            <%= f.text_field :company_website, class: 'form-control', placeholder: "What is your company's website?", required: true %>
+            <%= f.url_field :company_website, class: 'form-control', placeholder: "What is your full companys website (e.g. http://boxbee.com)? ", required: true %>
           <% end %>
         <% end %>
 
