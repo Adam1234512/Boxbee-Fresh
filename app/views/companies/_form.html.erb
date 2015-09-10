@@ -62,8 +62,7 @@
   </div>
 
   <div class="form-group">
-<<<<<<< HEAD
-    <%= f.label "Which cities do you serve?" %><br/>
+    <%= f.label "Which cities are you in?" %><br/>
     <%= text_field_tag :cities, nil, class: "form-control cities-input", placeholder: "Enter the city you serve, in 'city, state, country' format.", required: true%>
     <%= link_to "I serve multiple cities", 'javascript:void(0);', id: 'serve-multiple-cities' %>
     <div id="multiple-cities-container">
@@ -75,11 +74,6 @@
       <%= text_field_tag :cities6, nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
       <%= text_field_tag :cities7, nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
     </div>
-
-=======
-    <%= f.label "Which city are you in?" %><br/>
-    <%= text_field_tag :cities, nil, class: "form-control cities-input", placeholder: "Enter the city you serve, in 'city, state, country' format.", required: true%>
->>>>>>> devs-branch
   </div>
 
   <div class="form-group">
