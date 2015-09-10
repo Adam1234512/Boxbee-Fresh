@@ -44,7 +44,7 @@ class Company < ActiveRecord::Base
     return cities_object_array
   end
 
-  def parse_and_create_user(params)
+  def self.parse_and_create_user(params)
     first_name = params[:first_name]
     last_name = params[:last_name]
     email = params[:email]

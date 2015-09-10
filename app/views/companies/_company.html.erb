@@ -14,6 +14,11 @@
           <%= "#{city.name} " %>
         <% end %>
       </div>
+      <% if company.hold %>
+        <div id="approve-listing" class="centered-title">
+          <%= link_to "Approve listing", controller: 'companies', action: 'approve_listing', remote: true %>
+        </div>
+      <% end %>
       <div class="centered bottom-placeholder">
         <%= link_to "Visit company", "#{company.website_url}", class: "btn-login btn-company_url", target: '_blank'%>
       </div>

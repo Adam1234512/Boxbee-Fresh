@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :authenticate_user!, only: [:edit]
+  before_action :authenticate_user!, only: [:show, :approve_listing]
 
   #For autocomplete-rails
   autocomplete :city, :name
@@ -41,6 +41,25 @@ class CompaniesController < ApplicationController
     else
       flash[:error] = "There was an error adding your company. Please try again."
       render :new
+    end
+  end
+
+  def show
+    @company = Company.find(params[:id])
+  end
+
+  def approve_listing
+    @company = Company.find(params[:id])
+    @company.hold = false
+    if @company.save
+      flash[:notice] = "This listing has been successfully approved."
+    else
+      flash[:error] = "There was an error approving the listing. Please try again"
+    end
+
+    respond_to do |format|
+      format.js
+      format.html
     end
   end
 

@@ -11,8 +11,9 @@
       <li>URL: <%= "#{@company.website_url}" %></li>
     </ul>
     <p>
-      Navigate to the Boxbee community to learn more about the company and the user information.
-      <%= link_to "Company profile", @company %><br/>
+      This company's profile is currently hidden from public search results.
+      To approve public listing, click the button below: <br/>
+      <%= link_to "Approve listing", company_path(@company), class: 'btn-login' %>
     </p>
   </body>
 </html>
