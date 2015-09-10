@@ -29,7 +29,7 @@ class CompaniesController < ApplicationController
         Rails.logger.debug("Looks like beta_survey_id is present at companies#create")
         redirect_to root_path
         session[:beta_survey_id] = nil
-        flash[:notice] = "You successfully added your company"
+        flash[:notice] = "You successfully submitted your company.  We'll review your listing soon."
         Rails.logger.debug("Check to make sure session[:beta_survey_id] set to nil #{session[:beta_survey_id]}")
       else
         Rails.logger.debug("Looks like beta_survey_id is NOT present at companies#create")
@@ -39,7 +39,7 @@ class CompaniesController < ApplicationController
       end
       SignupNotifier.send_new_company_notification_email(@company).deliver_now
     else
-      flash[:error] = "There was an error adding your company. Please try again."
+      flash[:error] = "There was an error submitting your company. Please try again."
       render :new
     end
   end

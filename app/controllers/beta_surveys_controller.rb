@@ -11,7 +11,7 @@ class BetaSurveysController < ApplicationController
     @beta_survey = BetaSurvey.new(beta_survey_params)
     BetaSurvey.parse_and_create_user(params)
     if @beta_survey.save
-      flash[:notice] = "Thank you. You successfully submitted your survey. Stay tuned for updates!"
+      flash[:notice] = "Thank you!  We'll be in touch soon with updates on the Boxbee Beta Program."
       BetaSurveyNotifier.send_beta_survey_notification_email(@beta_survey).deliver_now
       if session[:company_id]
         Rails.logger.debug("Looks like company_id is present at beta_surveys#create")

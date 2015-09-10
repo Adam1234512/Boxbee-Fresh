@@ -11,73 +11,73 @@
     </div>
   <% end %>
   <!-- User info collection -->
-  <%= label_tag :first_name, "First name" %>
+  <%= label_tag :first_name, "Your First Name" %>
   <% if @session_user_info %>
     <%= text_field_tag :first_name, value: "#{@session_user_info[0]}", class: 'form-control' %>
   <% else %>
-    <%= text_field_tag :first_name, nil, class: 'form-control', placeholder: 'Please enter your first name' %>
+    <%= text_field_tag :first_name, nil, class: 'form-control', placeholder: 'Please enter your first name.' %>
   <% end %>
 
-  <%= label_tag :last_name, "Last name" %>
+  <%= label_tag :last_name, "Your Last Name" %>
   <% if @session_user_info %>
     <%= text_field_tag :last_name, value: "#{@session_user_info[1]}", class: 'form-control' %>
   <% else %>
-    <%= text_field_tag :last_name, nil, class: 'form-control', placeholder: 'Please enter your last name' %>
+    <%= text_field_tag :last_name, nil, class: 'form-control', placeholder: 'Please enter your last name.' %>
   <% end %>
 
-  <%= label_tag :email, "Email" %>
+  <%= label_tag :email, "Your Email Address" %>
   <% if @session_user_info %>
     <%= text_field_tag :email, value: "#{@session_user_info[2]}", class: 'form-control' %>
   <% else %>
-    <%= text_field_tag :email, nil, class: 'form-control', placeholder: 'Please enter your email' %>
+    <%= text_field_tag :email, nil, class: 'form-control', placeholder: 'Please enter your email address in case we need to contact you.' %>
   <% end %>
 
   <!-- Main form -->
   <%= form_group_tag(company.errors[:name]) do %>
-    <%= f.label :name %>
+    <%= f.label :name, "Your Company Name" %>
     <% if @session_company_info %>
-      <%= f.text_field :name, value: "#{@session_company_info[0]}", class: 'form-control', placeholder: "Enter the name of your company", required: true %>
+      <%= f.text_field :name, value: "#{@session_company_info[0]}", class: 'form-control', placeholder: "Please enter the name of your company", required: true %>
     <% else %>
-      <%= f.text_field :name, class: 'form-control', placeholder: "Enter the name of your company.", required: true %>
+      <%= f.text_field :name, class: 'form-control', placeholder: "Please enter the name of your company.", required: true %>
     <% end %>
   <% end %>
 
   <%= form_group_tag(company.errors[:description]) do %>
-    <%= f.label :description %><span class="countdown"></span>
-    <%= f.text_area :description, class: 'form-control', placeholder: "Enter a short description of the services you provide.", cols: 20, rows: 3, maxlength: 90, required: true %>
+    <%= f.label :description, "Your Company Description" %><span class="countdown"></span>
+    <%= f.text_area :description, class: 'form-control', placeholder: "Please enter a short description (90 character maximum) of the service you provide.", cols: 20, rows: 3, maxlength: 90, required: true %>
   <% end %>
 
   <%= form_group_tag(company.errors[:website_url]) do %>
-    <%= f.label :website_url %>
+    <%= f.label :website_url, "Your Company Website" %>
     <% if @session_company_info %>
-      <%= f.url_field :website_url, value: "#{@session_company_info[1]}", class: 'form-control', placeholder: "What's your website full URL? E.g. 'http://www.boxbee.com'", required: true %>
+      <%= f.url_field :website_url, value: "#{@session_company_info[1]}", class: 'form-control', placeholder: "Please enter the full URL of your company's website. For example 'http://www.boxbee.com'", required: true %>
     <% else %>
-      <%= f.url_field :website_url, class: 'form-control', placeholder: "Enter the complete URL of your website - e.g. 'http://www.boxbee.com'", required: true %>
+      <%= f.url_field :website_url, class: 'form-control', placeholder: "Please enter the full URL of your company's website. For example 'http://www.boxbee.com'", required: true %>
     <% end %>
   <% end %>
 
   <div class="form-group">
-    <%= f.label :logo %>
+    <%= f.label :logo, "Your Company Logo" %>
     <%= f.file_field :logo %>
   </div>
 
   <div class="form-group">
-    <%= f.label "Which cities are you in?" %><br/>
-    <%= text_field_tag :cities, nil, class: "form-control cities-input", placeholder: "Enter the city you serve, in 'city, state, country' format.", required: true%>
-    <%= link_to "I serve multiple cities", 'javascript:void(0);', id: 'serve-multiple-cities' %>
+    <%= f.label :cities,"Your Service Area" %><br/>
+    <%= text_field_tag :cities, nil, class: "form-control cities-input", placeholder: "Please choose the city you serve.", required: true%>
+    <%= link_to "Add a city", 'javascript:void(0);', id: 'serve-multiple-cities' %>
     <div id="multiple-cities-container">
-      <small>Enter up to six more cities!</small>
-      <%= text_field_tag :cities2, nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
-      <%= text_field_tag :cities3, nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
-      <%= text_field_tag :cities4, nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
-      <%= text_field_tag :cities5, nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
-      <%= text_field_tag :cities6, nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
-      <%= text_field_tag :cities7, nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
+      <small>Choose up to six more cities!</small>
+      <%= text_field_tag :cities2, nil, class: "form-control cities-input", placeholder: "Choose another city (if applicable)" %>
+      <%= text_field_tag :cities3, nil, class: "form-control cities-input", placeholder: "Choose another city (if applicable)" %>
+      <%= text_field_tag :cities4, nil, class: "form-control cities-input", placeholder: "Choose another city (if applicable)" %>
+      <%= text_field_tag :cities5, nil, class: "form-control cities-input", placeholder: "Choose another city (if applicable)" %>
+      <%= text_field_tag :cities6, nil, class: "form-control cities-input", placeholder: "Choose another city (if applicable)" %>
+      <%= text_field_tag :cities7, nil, class: "form-control cities-input", placeholder: "Choose another city (if applicable)" %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.submit "Submit", class: 'btn-login' %>
+    <%= f.submit "Submit Your Company", class: 'btn-login' %>
   </div>
   <br/>
   <br/>
