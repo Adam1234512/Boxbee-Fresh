@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909035835) do
+ActiveRecord::Schema.define(version: 20150910180452) do
 
   create_table "beta_surveys", force: :cascade do |t|
     t.boolean  "currently_offer_storage"
@@ -49,14 +49,15 @@ ActiveRecord::Schema.define(version: 20150909035835) do
     t.string   "name"
     t.string   "website_url"
     t.text     "description"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.integer  "user_id"
     t.integer  "guest_id"
     t.string   "logo_file_name"
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.boolean  "hold",              default: true
   end
 
   add_index "companies", ["guest_id"], name: "index_companies_on_guest_id"
