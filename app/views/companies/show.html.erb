@@ -7,7 +7,7 @@
   <div class="col-md-6">
     <strong>Description:</strong> <%= "#{@company.description}" %><br/>
     <strong>Website:</strong> <%= link_to "#{@company.website_url}", "#{@company.website_url}"  %><br/>
-    <strong>Cities present in:</strong> <% @company.cities.each {|city| "#{city.name} "}  %><br/>
+    <strong>Cities we serve:</strong> <% @company.cities.each {|city| "#{city.name} "}  %><br/>
   </div>
   <div class="col-md-3">
     <%= link_to "Edit listing", edit_company_path(@company), class: "btn-login" unless @company.claimed? && !@company.claimed_by?(current_user) %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909053512) do
+ActiveRecord::Schema.define(version: 20150909035835) do
 
   create_table "beta_surveys", force: :cascade do |t|
     t.boolean  "currently_offer_storage"

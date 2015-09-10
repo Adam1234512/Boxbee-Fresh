@@ -3,15 +3,16 @@
     <div class="panel-body">
       <%= form_tag companies_path, method: 'get', id: "companies-search" do %>
         <p>
-          <%= text_field_tag :search, nil, class: 'form-control', placeholder: 'Enter your city here:' %>
+          <%= text_field_tag :search, nil, class: 'form-control', placeholder: 'Type in your city' %>
           <%= submit_tag "Search", name: nil, class: 'btn-login' %>
         </p>
       <% end %>
     </div>
   </div>
+
   <% if @companies.length >= 1 %>
-    <p><%= "Results returned for \"#{@city}\": #{@companies.all.count}" %></p>
-    <small>Don't see your company here? <%= link_to 'Add your company now', new_company_path %></small>
+    <p><%= " #{@city} : #{@companies.all.count}" %></p>
+    <small>Don't see your company here? <%= link_to 'Submit your company', new_company_path %></small>
     <h2>List of companies</h2>
     <%= render partial: 'company', collection: @companies %>
   <% else %>
