@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('read page:load', function() {
     $( "#search" ).autocomplete({
       source: function (request, response) {
   		 jQuery.getJSON(
