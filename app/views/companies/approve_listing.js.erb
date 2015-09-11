@@ -1,0 +1,9 @@
+// $('#approve-listing').hide()
+<% if flash[:notice] %>
+  <% flash[:notice] = "This listing has been successfully approved." %>
+  <% Rails.logger.debug("flash notice: #{flash[:notice]}") %>
+  $('#approve-listing').html("<p><%= flash[:notice]%></p>");
+<% elsif flash[:error] %>
+  <% flash[:error] = "There was an error approving the listing. Please try again" %>
+  $('#approve-listing').html("<p><%= flash[:error]%></p>");
+<% end %>

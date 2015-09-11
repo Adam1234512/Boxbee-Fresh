@@ -892,12 +892,12 @@ a:visited {
 }
 
 a:hover {
-  color: #66cc66;
+  color: #66cc66 !important;
 }
 
 #investors {
   width: 100%;
-  background-color: #e7e9d9;
+  background-color: #f7fbfb;
 }
 
 #investor .container {
@@ -943,7 +943,7 @@ a:hover {
 }
 
 #footer {
-  background-color: #f7fbfb;
+  background-color: #e7e9d9;
 }
 
 #footer p, #footer a {

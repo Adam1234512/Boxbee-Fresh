@@ -10,10 +10,21 @@
       </div>
       <div class="centered">
         Serving:<br/>
+        <% ct = 1 %>
         <% company.cities.each do |city| %>
-          <%= "#{city.name} " %>
+          <% if ct == company.cities.length || company.cities.length == 1 %>
+            <%= "#{city.name} " %>
+          <% else %>
+            <%= "#{city.name}, " %>
+          <% end %>
+          <% ct += 1 %>
         <% end %>
       </div>
+      <% if company.hold && (current_user.admin? if current_user) %>
+        <div id="approve-listing" class="centered-title">
+          <%= link_to "Approve listing", {controller: 'companies', action: 'approve_listing', id: company.id}, remote: true %>
+        </div>
+      <% end %>
       <div class="centered bottom-placeholder">
         <%= link_to "View Website", "#{company.website_url}", class: "btn-login btn-company_url", target: '_blank'%>
       </div>

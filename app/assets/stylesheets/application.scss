@@ -113,7 +113,24 @@
   display:block;
   margin-bottom:30px;
 }
+
+.centered-button {
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
+  text-align:center;
+}
+.centered-button a {
+  float:none;
+}
 //Flashes
 .flashes {
-  margin-top: 129px;
+  margin-top: 60px;
+}
+
+.logout {
+  float: right;
+  position: relative;
+  top: 7px;
+  margin: 0px 10px 0px 10px;
 }

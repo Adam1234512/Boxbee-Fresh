@@ -25,21 +25,27 @@ class Company < ActiveRecord::Base
     end
   end
 
-  def self.parse_city(params)
-    # needs to be updated for multiple cities
-    Rails.logger.debug("params: #{params[:cities]}")
-    location_categories = params[:cities].split(",")
+  def self.parse_cities(params)
+    # Multiple cities
+    cities = params.select {|city| city.match("cities\d*")}
+    Rails.logger.debug("cities: #{cities}")
+    cities.select! {|k,v| v.length>0}
+    Rails.logger.debug("cities after select!: #{cities}")
+
     cities_object_array = []
-    #Check to see if city exists
-    city_match = City.where("cities.name LIKE ?", "%#{location_categories[0]}").where("cities.name LIKE ?", "%#{location_categories[1]}").where("cities.state LIKE ?", "%#{location_categories[2]}").first
-    # if so, insert the matching city into the array
-    Rails.logger.debug("city_match: #{city_match}")
-    if city_match
-      cities_object_array << city_match.first
-    # if not, create a new one and insert into array
-    else
-      new_city = City.create(name: "#{location_categories[0]}", state: "#{location_categories[1]}", country: "#{location_categories[2]}")
-      cities_object_array << new_city
+
+    cities.each do |k,v|
+      location_categories = v.split(",")
+      #Check to see if city exists
+      city_match = City.where("cities.name LIKE ?", "%#{location_categories[0]}").where("cities.name LIKE ?", "%#{location_categories[1]}").where("cities.state LIKE ?", "%#{location_categories[2]}").first
+      # if so, insert the matching city into the array
+      if city_match
+        cities_object_array << city_match
+      # if not, create a new one and insert into array
+      else
+        new_city = City.create(name: "#{location_categories[0]}", state: "#{location_categories[1]}", country: "#{location_categories[2]}")
+        cities_object_array << new_city
+      end
     end
     return cities_object_array
   end
