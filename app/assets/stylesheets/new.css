@@ -944,6 +944,7 @@ a:hover {
 
 #footer {
   background-color: #e7e9d9;
+  padding-bottom:30px;
 }
 
 #footer p, #footer a {
