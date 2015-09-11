@@ -22,7 +22,7 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.new(company_params)
-    @company.cities = Company.parse_city(params)
+    @company.cities = Company.parse_cities(params)
     @company.user = Company.parse_and_create_user(params)
     if @company.save
       if session[:beta_survey_id]

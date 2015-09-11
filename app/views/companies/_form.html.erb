@@ -34,7 +34,7 @@
 
   <!-- Main form -->
   <%= form_group_tag(company.errors[:name]) do %>
-    <%= f.label :name %>
+    <%= f.label :name, "Company name" %>
     <% if @session_company_info %>
       <%= f.text_field :name, value: "#{@session_company_info[0]}", class: 'form-control', placeholder: "Enter the name of your company", required: true %>
     <% else %>
@@ -67,12 +67,9 @@
     <%= link_to "I serve multiple cities", 'javascript:void(0);', id: 'serve-multiple-cities' %>
     <div id="multiple-cities-container">
       <small>Enter up to six more cities!</small>
-      <%= text_field_tag :cities2, nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
-      <%= text_field_tag :cities3, nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
-      <%= text_field_tag :cities4, nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
-      <%= text_field_tag :cities5, nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
-      <%= text_field_tag :cities6, nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
-      <%= text_field_tag :cities7, nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
+      <% 6.times do |i| %>
+        <%= text_field_tag "cities#{i}", nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)" %>
+      <% end %>
     </div>
   </div>
 
