@@ -1,9 +1,15 @@
 <div class="container holder company-results">
-  <h1>Companies offering on demand storage</h1>
+  <div class="row" style="width:100%;">
+    <div class="col-sm-9 col-md-9 col-lg-9">
+      <h1>On-Demand Storage Companies</h1>
+    </div>
+    <div class="col-sm-3 col-md-3 col-lg-3">
+      <small><%= link_to 'Submit your company', new_company_path, class:'btn-login' %></small>
+    </div>
+  </div>
   <p>
     Look at all of the on demand storage companies around the world.
   </p>
-  <div style="10px 5px 20px 5px"><small><%= link_to 'Submit your company', new_company_path %></small></div><br/>
   <%= render partial: 'company', collection: @companies %>
   <!-- #We can paginate the results here if there are too many.  -->
 </div>

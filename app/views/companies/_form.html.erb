@@ -11,34 +11,40 @@
     </div>
   <% end %>
   <!-- User info collection -->
-  <%= label_tag :first_name, "Your First Name" %>
-  <% if @session_user_info %>
-    <%= text_field_tag :first_name, @session_user_info[0], class: 'form-control' %>
-  <% else %>
-    <%= text_field_tag :first_name, nil, class: 'form-control', placeholder: 'Please enter your first name.' %>
-  <% end %>
+  <div class="form-group">
+    <%= label_tag :first_name, "Your First Name" %>
+    <% if @session_user_info %>
+      <%= text_field_tag :first_name, @session_user_info[0], class: 'form-control' %>
+    <% else %>
+      <%= text_field_tag :first_name, nil, class: 'form-control', placeholder: 'Please enter your first name.' %>
+    <% end %>
+  </div>
 
-  <%= label_tag :last_name, "Your Last Name" %>
-  <% if @session_user_info %>
-    <%= text_field_tag :last_name, @session_user_info[1], class: 'form-control' %>
-  <% else %>
-    <%= text_field_tag :last_name, nil, class: 'form-control', placeholder: 'Please enter your last name.' %>
-  <% end %>
+  <div class="form-group">
+    <%= label_tag :last_name, "Your Last Name" %>
+    <% if @session_user_info %>
+      <%= text_field_tag :last_name, @session_user_info[1], class: 'form-control' %>
+    <% else %>
+      <%= text_field_tag :last_name, nil, class: 'form-control', placeholder: 'Please enter your last name.' %>
+    <% end %>
+  </div>
 
-  <%= label_tag :email, "Your Email Address" %>
-  <% if @session_user_info %>
-    <%= text_field_tag :email, @session_user_info[2], class: 'form-control' %>
-  <% else %>
-    <%= text_field_tag :email, nil, class: 'form-control', placeholder: 'Please enter your email address in case we need to contact you.' %>
-  <% end %>
+  <div class="form-group">
+    <%= label_tag :email, "Your Email Address" %>
+    <% if @session_user_info %>
+      <%= text_field_tag :email, @session_user_info[2], class: 'form-control' %>
+    <% else %>
+      <%= text_field_tag :email, nil, class: 'form-control', placeholder: 'Please enter your email address in case we need to contact you.' %>
+    <% end %>
+  </div>
 
   <!-- Main form -->
   <%= form_group_tag(company.errors[:name]) do %>
     <%= f.label :name, "Your Company Name" %>
     <% if @session_company_info %>
-      <%= f.text_field :name, value: @session_company_info[0], class: 'form-control', placeholder: "Please enter the name of your company", required: true %>
+      <%= f.text_field :name, value: @session_company_info[0], class: 'form-control', placeholder: "Please enter the name of your company", maxlength: 30, required: true %>
     <% else %>
-      <%= f.text_field :name, class: 'form-control', placeholder: "Please enter the name of your company.", required: true %>
+      <%= f.text_field :name, class: 'form-control', placeholder: "Please enter the name of your company.", maxlength: 30, required: true %>
     <% end %>
   <% end %>
 
@@ -50,9 +56,9 @@
   <%= form_group_tag(company.errors[:website_url]) do %>
     <%= f.label :website_url, "Your Company Website" %>
     <% if @session_company_info %>
-      <%= f.url_field :website_url, value: @session_company_info[1], class: 'form-control', placeholder: "Please enter the full URL of your company's website. For example 'http://www.boxbee.com'", required: true %>
+      <%= f.text_field :website_url, value: @session_company_info[1], class: 'form-control', placeholder: "Please enter the full URL of your company's website. For example 'http://www.boxbee.com'", required: true %>
     <% else %>
-      <%= f.url_field :website_url, class: 'form-control', placeholder: "Please enter the full URL of your company's website. For example 'http://www.boxbee.com'", required: true %>
+      <%= f.text_field :website_url, class: 'form-control', placeholder: "Please enter your company's website. For example 'http://www.boxbee.com'", required: true %>
     <% end %>
   <% end %>
 
