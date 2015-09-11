@@ -32,7 +32,7 @@ class Company < ActiveRecord::Base
     cities_object_array = []
 
     cities.each do |city|
-      location_categories = city.split(",")[0].drop(1)
+      location_categories = city.split(",")[0].drop(1)[0].split(",")
       #Check to see if city exists
       city_match = City.where("cities.name LIKE ?", "%#{location_categories[0]}").where("cities.name LIKE ?", "%#{location_categories[1]}").where("cities.state LIKE ?", "%#{location_categories[2]}").first
       # if so, insert the matching city into the array

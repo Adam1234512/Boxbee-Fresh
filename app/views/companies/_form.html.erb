@@ -34,11 +34,7 @@
 
   <!-- Main form -->
   <%= form_group_tag(company.errors[:name]) do %>
-<<<<<<< HEAD
-    <%= f.label :name, "Company name" %>
-=======
     <%= f.label :name, "Your Company Name" %>
->>>>>>> dev2branch
     <% if @session_company_info %>
       <%= f.text_field :name, value: "#{@session_company_info[0]}", class: 'form-control', placeholder: "Please enter the name of your company", required: true %>
     <% else %>

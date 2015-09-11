@@ -4,10 +4,7 @@ class CompaniesController < ApplicationController
   #For autocomplete-rails
   autocomplete :city, :name
   def index
-    @companies = Company.search(params[:search])
-    @companies_all = Company.all
-    @no_companies = @companies.length < 1
-    @city = params[:search]
+    @companies = Company.all
   end
 
   def new
@@ -26,15 +23,11 @@ class CompaniesController < ApplicationController
     @company.user = Company.parse_and_create_user(params)
     if @company.save
       if session[:beta_survey_id]
-        Rails.logger.debug("Looks like beta_survey_id is present at companies#create")
         redirect_to root_path
         session[:beta_survey_id] = nil
         flash[:notice] = "You successfully submitted your company.  We'll review your listing soon."
-        Rails.logger.debug("Check to make sure session[:beta_survey_id] set to nil #{session[:beta_survey_id]}")
       else
-        Rails.logger.debug("Looks like beta_survey_id is NOT present at companies#create")
         session[:company_id] = @company.id
-        Rails.logger.debug("Created session[:company_id] #{session[:company_id]}")
         redirect_to beta_program_path
       end
       SignupNotifier.send_new_company_notification_email(@company).deliver_now

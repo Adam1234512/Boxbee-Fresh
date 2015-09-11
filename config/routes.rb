@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :companies do
     get :autocomplete_city_name, on: :collection
-    member do
+    collection do
       get :approve_listing
     end
   end

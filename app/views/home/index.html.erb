@@ -10,16 +10,16 @@
 	    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 box">
 				<div class="form-holder">
 					<div class="panel panel-default">
-						<div class="panel-body">
+						<div class="panel-body centered-title">
 							<h4>Find On-Demand Storage in your city.</h4>
 
-							<small><%= link_to "Add your service", new_company_path %></small>
-							<%= form_tag companies_path, method: 'get', id: "companies-search" do %>
-								<p>
-									<%= text_field_tag :search, nil, class: 'form-control cities-input', placeholder: 'Choose a city...' %>
-									<%= submit_tag "Search", name: nil, class: 'btn-login' %>
-								</p>
-							<% end %>
+							<small><%= link_to "Add your service", new_company_path %></small><br/>
+								<small>
+									Boxbee is the leading provider of on demand storage software. See companies that offer storage, pickup, and delivery services.
+								</small>
+								<div class="centered-button">
+									<%= link_to "View on demand companies", companies_path, class: 'btn-login' %>
+								</div>
 						</div>
 					</div>
 				</div>

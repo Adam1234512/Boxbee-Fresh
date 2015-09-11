@@ -1,23 +1,9 @@
-<div class="container holder">
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <%= form_tag companies_path, method: 'get', id: "companies-search" do %>
-        <p>
-          <%= text_field_tag :search, nil, class: 'form-control', placeholder: 'Choose a city...' %>
-          <%= submit_tag "Search", name: nil, class: 'btn-login' %>
-        </p>
-      <% end %>
-    </div>
-  </div>
-
-  <% if @companies.length >= 1 %>
-    <p><%= " #{@companies.all.count} companies in #{@city} " %></p>
-    <small><%= link_to 'Submit your company', new_company_path %></small>
-    <%= render partial: 'company', collection: @companies %>
-  <% else %>
-    <div style="padding-bottom:500px;">
-      <p><%= "Be the first company in #{@city}." %></p>
-      <small><%= link_to 'Submit your company', new_company_path %></small>
-    </div>
-  <% end %>
+<div class="container holder company-results">
+  <h1>Companies offering on demand storage</h1>
+  <p>
+    Look at all of the on demand storage companies around the world.
+  </p>
+  <div style="10px 5px 20px 5px"><small><%= link_to 'Submit your company', new_company_path %></small></div><br/>
+  <%= render partial: 'company', collection: @companies %>
+  <!-- #We can paginate the results here if there are too many.  -->
 </div>

@@ -10,8 +10,14 @@
       </div>
       <div class="centered">
         Serving:<br/>
+        <% ct = 1 %>
         <% company.cities.each do |city| %>
-          <%= "#{city.name} " %>
+          <% if ct == company.cities.length || company.cities.length == 1 %>
+            <%= "#{city.name} " %>
+          <% else %>
+            <%= "#{city.name}, " %>
+          <% end %>
+          <% ct += 1 %>
         <% end %>
       </div>
       <% if company.hold %>
