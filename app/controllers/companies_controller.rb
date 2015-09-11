@@ -1,8 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :authenticate_user!, only: [:show, :approve_listing]
 
-  #For autocomplete-rails
-  autocomplete :city, :name
+
   def index
     @companies = Company.all
   end
@@ -22,10 +21,10 @@ class CompaniesController < ApplicationController
     @company.cities = Company.parse_cities(params)
     @company.user = Company.parse_and_create_user(params)
     if @company.save
+      flash[:notice] = "You successfully submitted your company.  We'll review your listing soon."
       if session[:beta_survey_id]
         redirect_to root_path
         session[:beta_survey_id] = nil
-        flash[:notice] = "You successfully submitted your company.  We'll review your listing soon."
       else
         session[:company_id] = @company.id
         redirect_to beta_program_path

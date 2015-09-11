@@ -28,11 +28,14 @@ class Company < ActiveRecord::Base
   def self.parse_cities(params)
     # Multiple cities
     cities = params.select {|city| city.match("cities\d*")}
+    Rails.logger.debug("cities: #{cities}")
     cities.select! {|k,v| v.length>0}
+    Rails.logger.debug("cities after select!: #{cities}")
+
     cities_object_array = []
 
-    cities.each do |city|
-      location_categories = city.split(",")[0].drop(1)[0].split(",")
+    cities.each do |k,v|
+      location_categories = v.split(",")
       #Check to see if city exists
       city_match = City.where("cities.name LIKE ?", "%#{location_categories[0]}").where("cities.name LIKE ?", "%#{location_categories[1]}").where("cities.state LIKE ?", "%#{location_categories[2]}").first
       # if so, insert the matching city into the array
@@ -44,7 +47,7 @@ class Company < ActiveRecord::Base
         cities_object_array << new_city
       end
     end
-    return cities_object_array.length == 1 ? cities_object_array[0] : cities_object_array
+    return cities_object_array
   end
 
   def self.parse_and_create_user(params)
