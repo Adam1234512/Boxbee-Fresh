@@ -1,10 +1,9 @@
 <div class="new-company container holder">
 
     <div class="centered-form" id="beta-form">
-      <h1>Join Our Beta Program.</h1>
-      <p>We are creating software to allow you to run your own branded, on-demand storage service.
-        No software expertise required. To join the Boxbee Beta program, please fill out this form or email us at <%= mail_to "boxbeeinc@boxbee.com" %>
-      </p>
+      <h1>Join The Boxbee Beta Program</h1>
+      <p>We're building an amazing software platform that lets anyone add On-Demand Storage to their list of services.  Use your own brand and your own team.
+        No software expertise required. To join the Boxbee Beta program, please fill out this form.</p>
 
       <%= form_for @beta_survey do |f| %>
         <!-- Error handling -->
@@ -111,12 +110,12 @@
 
         <%= form_group_tag(@beta_survey.errors[:preferred_contact_method]) do %>
           <%= f.label :preferred_contact_method %>
-          <%= f.text_field :preferred_contact_method, class: 'form-control', placeholder: "What is the best way to reach you?", required: true %>
+          <%= f.text_field :preferred_contact_method, class: 'form-control', placeholder: "What is the best way to contact you?", required: true %>
         <% end %>
 
 
         <div class="form-group">
-          <%= f.submit "Submit", class: 'btn-login' %>
+          <%= f.submit "Join the Beta Program", class: 'btn-login' %>
         </div>
       <% end %>
     </div>

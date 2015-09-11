@@ -11,12 +11,12 @@
 				<div class="form-holder">
 					<div class="panel panel-default">
 						<div class="panel-body">
-							<h3>Find an On-Demand Storage service near you.</h3>
+							<h4>Find On-Demand Storage in your city.</h4>
 
 							<small><%= link_to "Add your service", new_company_path %></small>
 							<%= form_tag companies_path, method: 'get', id: "companies-search" do %>
 								<p>
-									<%= text_field_tag :search, nil, class: 'form-control cities-input', placeholder: 'Type in your city' %>
+									<%= text_field_tag :search, nil, class: 'form-control cities-input', placeholder: 'Choose a city...' %>
 									<%= submit_tag "Search", name: nil, class: 'btn-login' %>
 								</p>
 							<% end %>

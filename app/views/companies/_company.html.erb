@@ -9,7 +9,7 @@
         <p><%="#{company.description}"%></p>
       </div>
       <div class="centered">
-        Serving the following cities:<br/>
+        Serving:<br/>
         <% company.cities.each do |city| %>
           <%= "#{city.name} " %>
         <% end %>
@@ -20,7 +20,7 @@
         </div>
       <% end %>
       <div class="centered bottom-placeholder">
-        <%= link_to "Visit company", "#{company.website_url}", class: "btn-login btn-company_url", target: '_blank'%>
+        <%= link_to "View Website", "#{company.website_url}", class: "btn-login btn-company_url", target: '_blank'%>
       </div>
     </div>
   </div>
