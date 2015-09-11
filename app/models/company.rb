@@ -6,7 +6,7 @@ class Company < ActiveRecord::Base
   # image stuff
   attr_accessor :logo
   has_attached_file :logo, styles: {
-    listing: '160x40>'
+    listing: '180x80>'
   }
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
