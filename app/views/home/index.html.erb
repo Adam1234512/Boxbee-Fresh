@@ -4,17 +4,17 @@
 	  <div class="row">
 	    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 box" style="padding: 0px 46px 0px 46px;">
         <h2>We Power On-Demand Storage</h2>
-        <p>We pioneered the On-Demand Storage industry with our per-box, per-month service in New York City and San Francisco.  We're expanding globally with our software platform that lets anyone run an On-Demand Storage service quickly and easily.</p>
+        <p>We pioneered the On-Demand Storage industry with our per-box, per-month service in New York City and San Francisco.  We're expanding globally with our software platform that lets anyone easily operate an On-Demand Storage service at scale.</p>
 	    </div>
 
 	    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 box">
 					<div class="panel panel-default">
 						<div class="panel-body centered-title" style="padding: 25px 25px 25px 25px;">
-							<h3>The Boxbee Directory</h3>
+							<h4>Boxbee Directory</h4>
 								<p>
-									As we build our global network of On-Demand Storage companies that pickup, store and deliver your important stuff whenever and wherever you want, we are showcasing a few of the best.
+									As we build a global network of companies that offer On-Demand Storage around the world, we're keeping a directory of our favorites.
 								</p>
-									<p><%= link_to "View Companies", companies_path, class: 'btn-login' %></p>
+									<p><%= link_to "View Our Directory", companies_path, class: 'btn-login' %></p>
 						</div>
 					</div>
       </div>
@@ -23,7 +23,8 @@
 	  <div class="row">
 
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 box" style="padding: 0px 46px 0px 46px; text-align:left;">
-				<h2>We Are Hiring</h2>
+				<p>Join our fast-growing team:</p>
+
 				<% get_job_listings.each do |job| %>
 					<%= link_to job[0], job[2], target: '_blank' %>
 					<p><%= job[1]%><br/></p>
@@ -34,9 +35,9 @@
 	    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 box">
 				<div class="panel panel-default">
 					<div class="panel-body centered-title" style="padding: 25px 25px 25px 25px;">
-						<h3>The Boxbee Beta Program</h3>
-						<p>Companies that provide On-Demand Storage services to their customers (or want to) can get early access to our software platform.</p>
-						<p><%= link_to "Join The Beta Program", beta_program_path, class: 'btn-login' %></p>
+						<h4>Boxbee Beta</h4>
+						<p>Get early access to our software platform that helps anyone provide On-Demand Storage services to their community.</p>
+						<p><%= link_to "Join Our Beta", beta_program_path, class: 'btn-login' %></p>
 					</div>
 				</div>
 	    </div>
