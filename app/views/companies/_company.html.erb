@@ -23,8 +23,11 @@
         </div>
         <% if company.hold && (current_user.admin? if current_user) %>
           <div id="approve-listing" class="centered-title">
+          <%= content_tag :div, id: "approve-listing-#{company.id}", class: 'centered-title' do %>
             <%= link_to "Approve listing", {controller: 'companies', action: 'approve_listing', id: company.id}, remote: true %>
+          <% end %>
           </div>
+          <%= content_tag :div, nil, id: "listing-status-#{company.id}" %>
         <% end %>
         <div class="centered bottom-placeholder">
           <%= link_to "View Website", "#{company.website_url}", class: "btn-login btn-company_url", target: '_blank'%>
