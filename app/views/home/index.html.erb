@@ -30,9 +30,12 @@
 					</div>
 				</div>
 	    </div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 box" style="padding: 0px 46px 0px 46px;">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 box" style="padding: 0px 46px 0px 46px; text-align:left;">
 				<h2>Job openings</h2>
-
+				<% get_job_listings.each do |job| %>
+					<%= link_to job[0], job[2], target: '_blank' %>
+					<p><%= job[1]%><br/></p>
+				<% end %>
 	    </div>
 	  </div>
 	</div>
