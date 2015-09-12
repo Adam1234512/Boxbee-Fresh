@@ -882,7 +882,7 @@ width:20px;
 
 a {
   font-family: "adelle-sans-regular";
-  color: #669966;
+  color: #669966 !important;
   /*font-size: 14px;*/
 }
 
