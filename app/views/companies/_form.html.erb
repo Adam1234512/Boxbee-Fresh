@@ -77,6 +77,9 @@
         <%= text_field_tag "cities#{i}", nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)", autocomplete: :off %>
       <% end %>
     </div>
+    <%= select_tag :bears do %>
+      <%=options_for_select([["Dollar", "$"], ["Kroner", "DKK"]])%>
+    <% end %>
   </div>
 
   <div class="form-group">

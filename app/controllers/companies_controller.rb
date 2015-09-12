@@ -43,11 +43,7 @@ class CompaniesController < ApplicationController
   def approve_listing
     @company = Company.find(params[:id])
     @company.hold = false
-    if @company.save
-      flash[:notice] = "This listing has been successfully approved."
-    else
-      flash[:error] = "There was an error approving the listing. Please try again"
-    end
+    @company.save
 
     respond_to do |format|
       format.js
