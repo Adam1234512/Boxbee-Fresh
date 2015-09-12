@@ -1,9 +1,8 @@
 <div class="new-company container holder">
 
     <div class="centered-form" id="beta-form">
-      <h1>Join The Boxbee Beta Program</h1>
-      <p>We're building an amazing software platform that lets anyone add On-Demand Storage to their list of services.  Use your own brand and your own team.
-        No software expertise required. To join the Boxbee Beta program, please fill out this form.</p>
+      <h2>Join Our Beta</h2>
+      <h4>Please complete this form to get early access to our software platform.</h4><br/>
 
       <%= form_for @beta_survey do |f| %>
         <!-- Error handling -->
@@ -115,7 +114,7 @@
 
 
         <div class="form-group">
-          <%= f.submit "Join the Beta Program", class: 'btn-login' %>
+          <%= f.submit "Submit", class: 'btn-login' %>
         </div>
       <% end %>
     </div>
