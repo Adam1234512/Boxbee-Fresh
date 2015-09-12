@@ -630,7 +630,6 @@ home .intro .btn-chat:hover {
 #how-it-works {
   overflow: hidden;
   color: #333333;
-  text-align: center;
   font: 18px/31px "latoregular", Arial, sans-serif;
   /* quotes block styles */
 }
@@ -877,7 +876,7 @@ width:20px;
 }
 
 .row {
-  display: inline-block;
+  display: block;
 }
 
 a {
