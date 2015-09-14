@@ -67,7 +67,7 @@
           <% if @company %>
             <%= f.text_field :company_name, value: "#{@company.name}", class: 'form-control', placeholder: "What is the name of your company?", required: true %>
           <% else %>
-            <%= f.text_field :company_name, class: 'form-control', placeholder: "What is the name of your company?", required: true %>
+            <%= f.text_field :company_name, class: 'form-control', placeholder: "What is the company name?", required: true %>
           <% end %>
         <% end %>
 
@@ -76,7 +76,7 @@
           <% if @company %>
             <%= f.url_field :company_website, value: "#{@company.website_url}", class: 'form-control', placeholder: "What is your company's website?", required: true %>
           <% else %>
-            <%= f.url_field :company_website, class: 'form-control', placeholder: "What is your full companys website (e.g. http://boxbee.com)? ", required: true %>
+            <%= f.url_field :company_website, class: 'form-control', placeholder: "What is your company website (e.g. http://boxbee.com)? ", required: true %>
           <% end %>
         <% end %>
 
