@@ -860,14 +860,12 @@ width:20px;
   position: absolute;
   right: 25px;
   top: 25px;
-  background: white url(font-path("Boxbee-10.svg")) no-repeat;
   height: 14px;
   width: 14px;
   border: none;
 }
 
 .close-existing-users:active {
-  background: white url(font-path("Boxbee-09.svg")) no-repeat;
   outline: none;
 }
 
