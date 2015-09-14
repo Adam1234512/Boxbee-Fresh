@@ -13,17 +13,20 @@
 
 ActiveRecord::Schema.define(version: 20150910221538) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "beta_surveys", force: :cascade do |t|
     t.boolean  "currently_offer_storage"
     t.boolean  "offer_transport"
     t.string   "company_name"
     t.string   "company_website"
     t.string   "preferred_contact_method"
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
-    t.text     "how_manage_warehouse",     default: "--- []\n"
-    t.text     "how_manage_vehicles",      default: "--- []\n"
-    t.text     "how_bookings_done",        default: "--- []\n"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.text     "how_manage_warehouse",     default: [],              array: true
+    t.text     "how_manage_vehicles",      default: [],              array: true
+    t.text     "how_bookings_done",        default: [],              array: true
     t.string   "email"
     t.string   "first_name"
     t.string   "last_name"
@@ -42,8 +45,8 @@ ActiveRecord::Schema.define(version: 20150910221538) do
     t.integer "city_id"
   end
 
-  add_index "cities_companies", ["city_id"], name: "index_cities_companies_on_city_id"
-  add_index "cities_companies", ["company_id"], name: "index_cities_companies_on_company_id"
+  add_index "cities_companies", ["city_id"], name: "index_cities_companies_on_city_id", using: :btree
+  add_index "cities_companies", ["company_id"], name: "index_cities_companies_on_company_id", using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -52,7 +55,6 @@ ActiveRecord::Schema.define(version: 20150910221538) do
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "user_id"
-    t.integer  "guest_id"
     t.string   "logo_file_name"
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
@@ -60,14 +62,7 @@ ActiveRecord::Schema.define(version: 20150910221538) do
     t.boolean  "hold",              default: true
   end
 
-  add_index "companies", ["guest_id"], name: "index_companies_on_guest_id"
-  add_index "companies", ["user_id"], name: "index_companies_on_user_id"
-
-  create_table "guests", force: :cascade do |t|
-    t.string   "token"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  add_index "companies", ["user_id"], name: "index_companies_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -95,7 +90,8 @@ ActiveRecord::Schema.define(version: 20150910221538) do
     t.boolean  "admin",                  default: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "companies", "users"
 end
