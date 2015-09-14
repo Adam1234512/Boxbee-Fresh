@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
-  helper HomeHelper
-  
+  # helper HomeHelper
+
   def index
   end
 end
