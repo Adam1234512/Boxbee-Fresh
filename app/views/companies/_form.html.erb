@@ -69,7 +69,7 @@
 
   <div class="form-group">
     <%= f.label :cities0,"Your Service Area" %><br/>
-    <%= text_field_tag :cities0, nil, class: "form-control cities-input", placeholder: "Please choose the city you serve. (Begin typing to see a list)", pattern: "^([a-zA-Z]+\s*)+,\s[a-zA-Z]+,\s([a-zA-Z]+\s*)+$", title: "You must select a valid city from the list", required: true, autocomplete: :off %>
+    <%= text_field_tag :cities0, nil, class: "form-control cities-input", placeholder: "Please choose the city you serve. (Begin typing to see a list)", title: "You must select a valid city from the list", required: true, autocomplete: :off %>
     <%= link_to "Add a city", 'javascript:void(0);', id: 'serve-multiple-cities' %>
     <div id="multiple-cities-container">
       <small>Enter up to six more cities!</small>

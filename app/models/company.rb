@@ -36,15 +36,22 @@ class Company < ActiveRecord::Base
 
     cities.each do |k,v|
       location_categories = v.split(",")
+      Rails.logger.debug("location_categories: #{location_categories}")
       #Check to see if city exists
-      city_match = City.where("cities.name LIKE ?", "%#{location_categories[0]}").where("cities.name LIKE ?", "%#{location_categories[1]}").where("cities.state LIKE ?", "%#{location_categories[2]}").first
-      # if so, insert the matching city into the array
-      if city_match
-        cities_object_array << city_match
-      # if not, create a new one and insert into array
+      if location_categories.length == 2
+        #city, country
+        city_match = City.where("cities.name LIKE ?", "%#{location_categories[0]}").where("cities.country LIKE ?", "%#{location_categories[1]}").first
+        city_match ? cities_object_array << city_match : new_city = City.create(name: "#{location_categories[0]}", country: "#{location_categories[1]}")
+      elsif location_categories.length == 3
+        #city, state, country
+        city_match = City.where("cities.name LIKE ?", "%#{location_categories[0]}").where("cities.state LIKE ?", "%#{location_categories[1]}").where("cities.country LIKE ?", "%#{location_categories[2]}").first
+        city_match ? cities_object_array << city_match : new_city = City.create(name: "#{location_categories[0]}", state: "#{location_categories[1]}", country: "#{location_categories[2]}")
+      elsif location_categories.length == 4
+        #sublocality, city, state, country
+        city_match = City.where("cities.sub_locality LIKE ?", "%#{location_categories[0]}").where("cities.name LIKE ?", "%#{location_categories[1]}").where("cities.name LIKE ?", "%#{location_categories[2]}").where("cities.state LIKE ?", "%#{location_categories[3]}").first
+        Rails.logger.debug("city_match: #{city_match}")
+        city_match ? cities_object_array << city_match : new_city = City.create(sub_locality: "#{location_categories[0]}", name: "#{location_categories[1]}", state: "#{location_categories[2]}", country: "#{location_categories[3]}")
       else
-        new_city = City.create(name: "#{location_categories[0]}", state: "#{location_categories[1]}", country: "#{location_categories[2]}")
-        cities_object_array << new_city
       end
     end
     return cities_object_array
