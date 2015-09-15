@@ -2,7 +2,7 @@ $(document).on('ready page:load', function() {
   $( ".cities-input" ).autocomplete({
     source: function (request, response) {
 		 jQuery.getJSON(
-			"http://gd.geobytes.com/AutoCompleteCity?callback=?&q="+request.term,
+			"gd.geobytes.com/AutoCompleteCity?callback=?&q="+request.term,
 			function (data) {
 			 response(data);
 			}
