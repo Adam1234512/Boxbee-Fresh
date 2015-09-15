@@ -19,54 +19,56 @@ $(document).on('ready page:load', function() {
 
   function initAutocomplete() {
     $.each(autocompleteWraps, function(index, name) {
-      autocomplete = new google.maps.places.Autocomplete(
-        /** @type {!HTMLInputElement} */(document.getElementById('cities0')),
+      autocomplete[name] = new google.maps.places.Autocomplete(
+        /** @type {!HTMLInputElement} */(document.getElementById(name)),
         {types: ['geocode']});
-      console.log(autocomplete);
-      autocomplete.addListener('place_changed', fillInAddress);
-    });
-    function fillInAddress() {
-      console.log("inner function");
-      var place = autocomplete.getPlace();
-      console.log(place);
-      var locationArray = [];
-      for (var i = 0; i < place.address_components.length; i++) {
-        var addressType = place.address_components[i].types[0];
-        switch (addressType) {
-          case "sublocality_level_1":
-            console.log("entered sublocality_level_1");
-            val = place.address_components[i][componentForm[addressType]];
-            console.log(val);
-            break;
-          case "locality":
-            console.log("entered locality");
-            val = " " + place.address_components[i][componentForm[addressType]];
-            console.log(val);
-            break;
-          case "administrative_area_level_1":
-            console.log("entered administrative_area_level_1");
-            val = " " + place.address_components[i][componentForm[addressType]];
-            console.log(val);
-            break;
-          case "country":
-            console.log("entered country");
-            val = " " + place.address_components[i][componentForm[addressType]];
-            console.log(val);
-            break;
-          default:
-            console.log("entered default");
-            val = "";
-            console.log(val);
-            break;
-        }
-        if (val.length === 0) {
-          } else {
-            locationArray.push(val);
-            console.log(locationArray.toString());
+      console.log(autocomplete[name]);
+      autocomplete[name].addListener('place_changed', fillInAddress);
+
+      function fillInAddress() {
+        console.log("inner function");
+        var place = autocomplete[name].getPlace();
+        console.log(place);
+        var locationArray = [];
+        for (var i = 0; i < place.address_components.length; i++) {
+          var addressType = place.address_components[i].types[0];
+          switch (addressType) {
+            case "sublocality_level_1":
+              console.log("entered sublocality_level_1");
+              val = place.address_components[i][componentForm[addressType]];
+              console.log(val);
+              break;
+            case "locality":
+              console.log("entered locality");
+              val = " " + place.address_components[i][componentForm[addressType]];
+              console.log(val);
+              break;
+            case "administrative_area_level_1":
+              console.log("entered administrative_area_level_1");
+              val = " " + place.address_components[i][componentForm[addressType]];
+              console.log(val);
+              break;
+            case "country":
+              console.log("entered country");
+              val = " " + place.address_components[i][componentForm[addressType]];
+              console.log(val);
+              break;
+            default:
+              console.log("entered default");
+              val = "";
+              console.log(val);
+              break;
           }
+          if (val.length === 0) {
+            } else {
+              locationArray.push(val);
+              console.log(locationArray.toString());
+            }
+        }
+        document.getElementById(name).value = locationArray.toString();
       }
-      document.getElementById('cities0').value = locationArray.toString();
-    }
+    });
+
   }
 
   window.initAutocomplete = initAutocomplete;
