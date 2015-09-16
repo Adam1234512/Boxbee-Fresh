@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get :autocomplete_city_name, on: :collection
     member do
       get :approve_listing
+      patch :change_rank
     end
   end
   get '/beta-program' => 'beta_surveys#new'

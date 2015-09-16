@@ -2,6 +2,7 @@ class Company < ActiveRecord::Base
   belongs_to :user
   has_and_belongs_to_many :cities
 
+  default_scope { order('rank ASC')}
 
   # image stuff
   attr_accessor :logo
@@ -70,5 +71,38 @@ class Company < ActiveRecord::Base
       user = User.create(first_name: first_name, last_name: last_name, email: email)
     end
     return user
+  end
+
+  def self.initial_rank
+    ranks_array = []
+    Company.all.each do |company|
+      ranks_array << company.rank
+    end
+    Rails.logger.debug(ranks_array)
+    max_rank = ranks_array.max
+    return max_rank += 1
+  end
+
+  def self.change_all_ranks(company, current_rank, change_to_rank)
+    companies = Company.all
+    ranks = []
+    companies.each {|c| ranks << c.rank }
+
+    #Create an array of company-rank pair
+    pairs = companies.zip(ranks)
+    Rails.logger.debug("pairs: #{pairs}")
+    #Remove pair associated with current rank
+    pair = [company, current_rank]
+    pairs.delete(pair)
+    #Insert pair into the new position
+    pairs.insert(change_to_rank-1, pair)
+    #Reassign ranks
+    ordered_rank = [*1..ranks.max]
+    c, r = pairs.transpose
+    for i in 1..ranks.max
+      company = c[i-1]
+      company.rank = ordered_rank[i-1]
+      company.save!
+    end
   end
 end

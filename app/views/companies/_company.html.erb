@@ -35,6 +35,12 @@
           <% end %>
           </div>
           <%= content_tag :div, nil, id: "listing-status-#{company.id}" %>
+          <div class="centered-title">
+            <%= form_for company, url: {action: 'change_rank', id: company.id} do |f| %>
+              <%= text_field_tag :change_to_rank, company.rank, class: 'form-control', style: 'width: 40px; display:inline;' %>
+              <%= f.submit "Change Rank", class: 'btn-rank' %>
+            <% end %>
+          </div>
         <% end %>
         <div class="centered bottom-placeholder">
           <%= link_to "View Website", "#{company.website_url}", class: "btn-login btn-company_url", target: '_blank'%>

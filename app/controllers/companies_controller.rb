@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :destroy, :edit, :update, :approve_listing]
+  before_action :authenticate_user!, only: [:show, :destroy, :edit, :update, :approve_listing, :change_rank]
 
 
   def index
@@ -20,6 +20,7 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
     @company.cities = Company.parse_cities(params)
     @company.user = Company.parse_and_create_user(params)
+    @company.rank = Company.initial_rank
     Rails.logger.debug("@company: #{@company.cities.all}")
     if @company.save
       flash[:notice] = "You successfully submitted your company.  We'll review your listing soon."
@@ -68,6 +69,19 @@ class CompaniesController < ApplicationController
       format.js
       format.html
     end
+  end
+
+  def change_rank
+    @company = Company.find(params[:id])
+    @current_rank = @company.rank
+    @change_to_rank = params[:change_to_rank].to_i
+
+    Company.change_all_ranks(@company, @current_rank, @change_to_rank)
+    redirect_to companies_path
+    # respond_to do |format|
+    #   format.js
+    #   format.html
+    # end
   end
 
   private
