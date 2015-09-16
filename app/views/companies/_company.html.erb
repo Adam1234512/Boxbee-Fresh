@@ -13,10 +13,10 @@
           Serving:<br/>
           <% ct = 1 %>
           <% company.cities.each do |city| %>
-            <% if ct == company.cities.length || company.cities.length == 1 %>
-              <%= "#{city.name} " %>
-            <% else %>
-              <%= "#{city.name}, " %>
+            <% if ct == company.cities.length || company.cities.length == 1 %> <%# if it's the last or only %>
+              <%= city.country == "United States" ? "#{city.name}, #{city.state}" : "#{city.name}, #{city.country}" %>
+            <% else %><%#otherwise add a pipe %>
+              <%= city.country == "United States" ? "#{city.name}, #{city.state} | " : "#{city.name}, #{city.country} | " %>
             <% end %>
             <% ct += 1 %>
           <% end %>

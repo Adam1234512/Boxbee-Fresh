@@ -35,7 +35,7 @@ class Company < ActiveRecord::Base
     cities_object_array = []
 
     cities.each do |k,v|
-      location_categories = v.split(",")
+      location_categories = v.split(", ")
       Rails.logger.debug("location_categories: #{location_categories}")
       #Check to see if city exists
       if location_categories.length == 2
