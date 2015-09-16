@@ -1,0 +1,5 @@
+<% if @company.destroyed? %>
+  $('#company-'+<%=@company.id%>).hide();
+<% else %>
+  $('#listing-status-'+<%=@company.id%>).html("<p style='color:red;'><span class='glyphicon glyphicon-remove'></span>Listing could not be removed.</p>");
+<% end %>

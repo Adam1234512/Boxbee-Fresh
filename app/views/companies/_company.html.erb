@@ -13,18 +13,25 @@
           Serving:<br/>
           <% ct = 1 %>
           <% company.cities.each do |city| %>
-            <% if ct == company.cities.length || company.cities.length == 1 %>
-              <%= "#{city.name} " %>
-            <% else %>
-              <%= "#{city.name}, " %>
+            <% if ct == company.cities.length || company.cities.length == 1 %> <%# if it's the last or only %>
+              <%= city.country == "United States" ? "#{city.name}, #{city.state}" : "#{city.name}, #{city.country}" %>
+            <% else %><%#otherwise add a pipe %>
+              <%= city.country == "United States" ? "#{city.name}, #{city.state} | " : "#{city.name}, #{city.country} | " %>
             <% end %>
             <% ct += 1 %>
           <% end %>
         </div>
-        <% if company.hold && (current_user.admin? if current_user) %>
-          <div id="approve-listing" class="centered-title">
-          <%= content_tag :div, id: "approve-listing-#{company.id}", class: 'centered-title' do %>
-            <%= link_to "Approve listing", {controller: 'companies', action: 'approve_listing', id: company.id}, remote: true %>
+        <% if (current_user.admin? if current_user) %>
+          <% if company.hold? %>
+            <div id="approve-listing" class="centered-title">
+            <%= content_tag :div, id: "approve-listing-#{company.id}", class: 'centered-title' do %>
+              <%= link_to "Approve listing", {controller: 'companies', action: 'approve_listing', id: company.id}, remote: true %>
+            <% end %>
+            </div>
+          <% end %>
+          <div id="delete-listing" class="centered-title">
+          <%= content_tag :div, id: "delete-listing-#{company.id}", class: 'centered-title' do %>
+            <%= link_to "Delete listing", company, method: :delete, remote: true %>
           <% end %>
           </div>
           <%= content_tag :div, nil, id: "listing-status-#{company.id}" %>
