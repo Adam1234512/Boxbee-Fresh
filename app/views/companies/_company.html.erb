@@ -27,6 +27,11 @@
             <%= link_to "Approve listing", {controller: 'companies', action: 'approve_listing', id: company.id}, remote: true %>
           <% end %>
           </div>
+          <div id="delete-listing" class="centered-title">
+          <%= content_tag :div, id: "delete-listing-#{company.id}", class: 'centered-title' do %>
+            <%= link_to "Delete listing", company, method: :delete, remote: true %>
+          <% end %>
+          </div>
           <%= content_tag :div, nil, id: "listing-status-#{company.id}" %>
         <% end %>
         <div class="centered bottom-placeholder">

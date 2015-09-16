@@ -41,20 +41,21 @@ class Company < ActiveRecord::Base
       if location_categories.length == 2
         #city, country
         city_match = City.where("cities.name LIKE ?", "%#{location_categories[0]}").where("cities.country LIKE ?", "%#{location_categories[1]}").first
-        city_match ? cities_object_array << city_match : new_city = City.create(name: "#{location_categories[0]}", country: "#{location_categories[1]}")
+        city_match ? cities_object_array << city_match : cities_object_array << City.create(name: "#{location_categories[0]}", country: "#{location_categories[1]}")
       elsif location_categories.length == 3
         #city, state, country
         city_match = City.where("cities.name LIKE ?", "%#{location_categories[0]}").where("cities.state LIKE ?", "%#{location_categories[1]}").where("cities.country LIKE ?", "%#{location_categories[2]}").first
-        city_match ? cities_object_array << city_match : new_city = City.create(name: "#{location_categories[0]}", state: "#{location_categories[1]}", country: "#{location_categories[2]}")
+        city_match ? cities_object_array << city_match : cities_object_array << City.create(name: "#{location_categories[0]}", state: "#{location_categories[1]}", country: "#{location_categories[2]}")
       elsif location_categories.length == 4
         #sublocality, city, state, country
         city_match = City.where("cities.sub_locality LIKE ?", "%#{location_categories[0]}").where("cities.name LIKE ?", "%#{location_categories[1]}").where("cities.name LIKE ?", "%#{location_categories[2]}").where("cities.state LIKE ?", "%#{location_categories[3]}").first
         Rails.logger.debug("city_match: #{city_match}")
-        city_match ? cities_object_array << city_match : new_city = City.create(sub_locality: "#{location_categories[0]}", name: "#{location_categories[1]}", state: "#{location_categories[2]}", country: "#{location_categories[3]}")
+        city_match ? cities_object_array << city_match : cities_object_array << City.create(sub_locality: "#{location_categories[0]}", name: "#{location_categories[1]}", state: "#{location_categories[2]}", country: "#{location_categories[3]}")
       else
       end
     end
     return cities_object_array
+    Rails.logger.debug("cities_object_array: #{cities_object_array}")
   end
 
   def self.parse_and_create_user(params)

@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :approve_listing]
+  before_action :authenticate_user!, only: [:show, :destroy, :edit, :update, :approve_listing]
 
 
   def index
@@ -20,6 +20,7 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
     @company.cities = Company.parse_cities(params)
     @company.user = Company.parse_and_create_user(params)
+    Rails.logger.debug("@company: #{@company.cities.all}")
     if @company.save
       flash[:notice] = "You successfully submitted your company.  We'll review your listing soon."
       if session[:beta_survey_id]
@@ -38,6 +39,24 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+  end
+
+  def destroy
+    @company = Company.find(params[:id])
+    @company.destroy
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
+  end
+
+  def edit
+
+  end
+
+  def update
+
   end
 
   def approve_listing
