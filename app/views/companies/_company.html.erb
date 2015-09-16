@@ -21,12 +21,14 @@
             <% ct += 1 %>
           <% end %>
         </div>
-        <% if company.hold && (current_user.admin? if current_user) %>
-          <div id="approve-listing" class="centered-title">
-          <%= content_tag :div, id: "approve-listing-#{company.id}", class: 'centered-title' do %>
-            <%= link_to "Approve listing", {controller: 'companies', action: 'approve_listing', id: company.id}, remote: true %>
+        <% if (current_user.admin? if current_user) %>
+          <% if company.hold? %>
+            <div id="approve-listing" class="centered-title">
+            <%= content_tag :div, id: "approve-listing-#{company.id}", class: 'centered-title' do %>
+              <%= link_to "Approve listing", {controller: 'companies', action: 'approve_listing', id: company.id}, remote: true %>
+            <% end %>
+            </div>
           <% end %>
-          </div>
           <div id="delete-listing" class="centered-title">
           <%= content_tag :div, id: "delete-listing-#{company.id}", class: 'centered-title' do %>
             <%= link_to "Delete listing", company, method: :delete, remote: true %>
