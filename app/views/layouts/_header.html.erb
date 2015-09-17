@@ -2,11 +2,11 @@
   <div class="header-content">
     <% if current_user %>
       <% if current_user.admin? %>
-        <div class="admin-dropdown">
-          <button type="button" data-toggle="dropdown" class="btn-login">Admin v</button>
-          <ul class="dropdown-menu" style="right:0; left:auto; max-width:100px;">
-            <li><%= link_to "Admin Home", admin_path, class: 'logout' %></li>
-            <li><%= link_to "Admin Logout", destroy_user_session_path, method: 'delete', class: 'logout'%></li>
+        <div class="admin-dropdown" style="float:right;">
+          <button type="button" data-toggle="dropdown" class="btn-neutral" style="margin-left:5px;">Admin <i class="glyphicon glyphicon-chevron-down"></i></button>
+          <ul class="dropdown-menu" style="left:auto; max-width:100px;">
+            <li><%= link_to "Admin Home", admin_path %></li>
+            <li><%= link_to "Admin Logout", destroy_user_session_path, method: 'delete'%></li>
           </ul>
         </div>
       <% else %>

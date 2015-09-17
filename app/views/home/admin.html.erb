@@ -24,6 +24,7 @@
       <th>ID</th>
       <th>Company name</th>
       <th>Contact name</th>
+      <th>When survey was submitted</th>
       <th>Link to survey details</th>
     </tr>
     <% @beta_surveys.each do |survey| %>
@@ -31,6 +32,7 @@
         <td><%=survey.id%></td>
         <td><%=survey.company_name%></td>
         <td><%=survey.first_name %> <%=survey.last_name%></td>
+        <td><%=survey.created_at %></td>
         <td><%=link_to "Go to this survey", survey%></td>
       </tr>
     <% end %>

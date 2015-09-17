@@ -78,7 +78,7 @@
     <div id="error-city"></div>
     <%= text_field_tag :city_gmap_entry, nil, class: "form-control cities-input", placeholder: "Please choose the city you serve. (Begin typing to see a list)", autocomplete: :off %>
     <div id="cities-form-list">
-      <% if company.cities %>
+      <% if request.env['PATH_INFO'] != '/companies/new' && company.cities %>
         <% company.cities.each do |city| %>
           <%= content_tag :div, id: "city-#{company.id}-#{city.id}" do %>
             <%="#{city.name}, #{city.country}" if city.sub_locality.nil? && city.state.nil? %>
