@@ -1,0 +1,13 @@
+<% if current_user && current_user.admin? %>
+  <h1>Beta Survey #<%=@beta_survey.id%></h1>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <% @beta_survey.attributes.each_pair do |name, value| %>
+        <%= content_tag :div, id: "beta-survey-#{name}" do %>
+          <strong>Question: </strong><%= "#{name}" %>
+          <strong>Answer: </strong><%= "#{value}" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,39 @@
+<div class="container holder legacy">
+  <h1>Welcome to the admin dashboard!</h1>
+  <p>
+    This summarizes information about you, companies, and surveys
+  </p>
+  <h3>You</h3>
+  <p>
+    Email: <%= current_user.email %>
+  </p>
+  <h3>Companies</h3>
+  <p>
+    Current number of companies signed up: <%= @companies.count %><br/>
+    Companies pending your approval: <%= @companies_for_approval %><br/>
+    <%= link_to "View/manage all companies", companies_path %>
+  </p>
+
+  <h3>Beta Program Surveys</h3>
+  <p>
+    Number of surveys filled out: <%= @beta_surveys.count %>
+  </p>
+  <h4>Survey results at a glance</h4>
+  <table class="table">
+    <tr>
+      <th>ID</th>
+      <th>Company name</th>
+      <th>Contact name</th>
+      <th>Link to survey details</th>
+    </tr>
+    <% @beta_surveys.each do |survey| %>
+      <tr>
+        <td><%=survey.id%></td>
+        <td><%=survey.company_name%></td>
+        <td><%=survey.first_name %> <%=survey.last_name%></td>
+        <td><%=link_to "Go to this survey", survey%></td>
+      </tr>
+    <% end %>
+  </table>
+
+</div>
