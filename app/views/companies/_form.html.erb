@@ -76,7 +76,7 @@
   <div class="form-group">
     <%= f.label :city_gmap_entry, "Your Service Area" %><br/>
     <div id="error-city"></div>
-    <%= text_field_tag :city_gmap_entry, nil, class: "form-control cities-input", placeholder: "Please choose the city you serve. (Begin typing to see a list)", autocomplete: :off %>
+    <%= search_field_tag :city_gmap_entry, nil, class: "form-control cities-input", placeholder: "Please choose the city you serve. (Begin typing to see a list)", autocomplete: :off %>
     <div id="cities-form-list">
       <% if request.env['PATH_INFO'] != '/companies/new' && company.cities %>
         <% company.cities.each do |city| %>
