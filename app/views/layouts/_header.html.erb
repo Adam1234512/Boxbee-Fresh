@@ -2,7 +2,13 @@
   <div class="header-content">
     <% if current_user %>
       <% if current_user.admin? %>
-        <%= link_to "Admin Logout", destroy_user_session_path, method: 'delete', class: 'logout' %>
+        <div class="admin-dropdown">
+          <button type="button" data-toggle="dropdown" class="btn-login">Admin v</button>
+          <ul class="dropdown-menu" style="right:0; left:auto; max-width:100px;">
+            <li><%= link_to "Admin Home", admin_path, class: 'logout' %></li>
+            <li><%= link_to "Admin Logout", destroy_user_session_path, method: 'delete', class: 'logout'%></li>
+          </ul>
+        </div>
       <% else %>
         <%= link_to "Logout", destroy_user_session_path, method: 'delete', class: 'logout' %>
       <% end %>
@@ -10,6 +16,6 @@
     <strong class="logo">
       <%= link_to image_tag("logo-home.png"), root_path %>
     </strong>
-      <%= link_to "Current Customers", 'https://www.boxbeestorage.com', class: "btn-login" %>
+    <%= link_to "Current Customers", 'https://www.boxbeestorage.com', class: "btn-login" %>
   </div>
 </header>

@@ -1,4 +1,5 @@
 class BetaSurveysController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :index]
   def new
     @beta_survey = BetaSurvey.new
     if session[:company_id]
@@ -27,6 +28,10 @@ class BetaSurveysController < ApplicationController
       flash[:error] = "There was an error submitting your survey. Please contact boxbeeinc@boxbee.com."
       render :new
     end
+  end
+
+  def show
+    @beta_survey = BetaSurvey.find(params[:id])
   end
 
   private

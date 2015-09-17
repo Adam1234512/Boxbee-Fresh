@@ -25,13 +25,18 @@ Rails.application.routes.draw do
     end
   end
   get '/beta-program' => 'beta_surveys#new'
-  resources :beta_surveys, only: [:new, :create]
+  resources :beta_surveys, only: [:new, :create, :show]
   get '/current_customers' => 'static_pages#legacy'
   get '/jobs' => 'static_pages#jobs'
+  get '/admin' => 'home#admin'
 
   #Legal
   get 'terms' => 'static_pages#terms'
   get 'privacy' => 'static_pages#terms'
+
+  #External forwarders
+  get '/instacart' => redirect('https://www.boxbeestorage.com/instacart')
+  get '/simplestorage' => redirect('https://www.boxbeestorage.com/simplestorage')
 
 
   # Example resource route with options:
