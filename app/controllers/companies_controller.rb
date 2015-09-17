@@ -57,7 +57,15 @@ class CompaniesController < ApplicationController
   end
 
   def update
-
+    @company = Company.find(params[:id])
+    @company.cities.push(Company.parse_cities(params))
+    if @company.update_attributes(company_params)
+      flash[:notice] = "Company has been updated"
+      redirect_to companies_path
+    else
+      flash[:error] = "There was an error updating the company. Please try again."
+      render :edit
+    end
   end
 
   def approve_listing
@@ -78,10 +86,17 @@ class CompaniesController < ApplicationController
 
     Company.change_all_ranks(@company, @current_rank, @change_to_rank)
     redirect_to companies_path
-    # respond_to do |format|
-    #   format.js
-    #   format.html
-    # end
+  end
+
+  def delete_city
+    @company = Company.find(params[:id])
+    @city = City.find_by_id(params[:city].to_i)
+    @company.cities.delete(@city)
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   private

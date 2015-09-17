@@ -1,6 +1,8 @@
-<h1>Edit Company Profile</h1>
-<p>
-  <%= "#{@company.name}" %>
-</p>
+<div class="new-company container holder">
 
-<%= render partial: 'form', locals: {company: @company} %>
+  <div class="centered-form">
+    <h2>Edit This Company</h2>
+    <h4>This is only accessible to admins.</h4><br/>
+    <%= render partial: 'form', locals: {company: @company} %>
+  </div>
+</div>

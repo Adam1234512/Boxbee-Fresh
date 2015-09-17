@@ -1,4 +1,4 @@
-<%= form_for company do |f| %>
+<%= form_for company, html: {onsubmit: "return formValidation();"}  do |f| %>
   <!-- Error handling -->
   <% if company.errors.any? %>
     <div class="alert alert-danger">
@@ -15,6 +15,8 @@
     <%= label_tag :first_name, "Your First Name" %>
     <% if @session_user_info %>
       <%= text_field_tag :first_name, @session_user_info[0], class: 'form-control' %>
+    <% elsif company.user %>
+      <%= text_field_tag :first_name, company.user.first_name, class: 'form-control' %>
     <% else %>
       <%= text_field_tag :first_name, nil, class: 'form-control', placeholder: 'Please enter your first name.', required: true %>
     <% end %>
@@ -24,6 +26,8 @@
     <%= label_tag :last_name, "Your Last Name" %>
     <% if @session_user_info %>
       <%= text_field_tag :last_name, @session_user_info[1], class: 'form-control' %>
+    <% elsif company.user %>
+      <%= text_field_tag :last_name, company.user.last_name, class: 'form-control' %>
     <% else %>
       <%= text_field_tag :last_name, nil, class: 'form-control', placeholder: 'Please enter your last name.', required: true %>
     <% end %>
@@ -33,6 +37,8 @@
     <%= label_tag :email, "Your Email Address" %>
     <% if @session_user_info %>
       <%= email_field_tag :email, @session_user_info[2], class: 'form-control', required: true %>
+    <% elsif company.user %>
+      <%= email_field_tag :email, company.user.email, class: 'form-control', required: true %>
     <% else %>
       <%= email_field_tag :email, nil, class: 'form-control', placeholder: 'Please enter your email address in case we need to contact you.' %>
     <% end %>
@@ -68,15 +74,21 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :cities0,"Your Service Area" %><br/>
-    <%= text_field_tag :cities0, nil, class: "form-control cities-input", placeholder: "Please choose the city you serve. (Begin typing to see a list)",
-    title: "You must select a valid city from the list", required: true, autocomplete: :off %>
-    <%= link_to "Add a city", 'javascript:void(0);', id: 'serve-multiple-cities' %>
-    <div id="multiple-cities-container">
-      <small>Enter up to six more cities!</small>
-      <% 6.times do |i| %>
-        <%= text_field_tag "cities#{i+1}", nil, class: "form-control cities-input", placeholder: "Enter another city (if applicable)", autocomplete: "off" %>
+    <%= f.label :city_gmap_entry, "Your Service Area" %><br/>
+    <div id="error-city"></div>
+    <%= text_field_tag :city_gmap_entry, nil, class: "form-control cities-input", placeholder: "Please choose the city you serve. (Begin typing to see a list)", autocomplete: :off %>
+    <div id="cities-form-list">
+      <% if company.cities %>
+        <% company.cities.each do |city| %>
+          <%= content_tag :div, id: "city-#{company.id}-#{city.id}" do %>
+            <%="#{city.name}, #{city.country}" if city.sub_locality.nil? && city.state.nil? %>
+            <%= "#{city.sub_locality}, #{city.name}, #{city.state} #{city.country}" if city.sub_locality %>
+            <%= "#{city.name}, #{city.state}, #{city.country}" if city.sub_locality.nil? %>
+            <%= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, {controller: 'companies', action: 'delete_city', id: company.id, city: city}, remote: true %>
+          <% end %>
+        <% end %>
       <% end %>
+      <div id="client-cities"></div>
     </div>
   </div>
 

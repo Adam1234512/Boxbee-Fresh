@@ -1,14 +1,13 @@
 $(document).on('ready page:load', function() {
   //Google Maps API
+  var num = 0; //for iterating through each city record
   var placeSearch;
   var autocomplete = {};
   var autocompleteWraps = [];
-  var extraFieldsCount = document.querySelectorAll('[id^="cities"]').length;
-  for (var i = 0; i < extraFieldsCount; i++) {
-    eval('autocompleteWraps'+'['+i+']'+'='+ "'cities'+i");
-  }
-  console.log(extraFieldsCount);
-  console.log(autocompleteWraps);
+  // for (var i = 0; i < extraFieldsCount; i++) {
+  //   eval('autocompleteWraps'+'['+i+']'+'='+ "'cities'+i");
+  // }
+  autocompleteWraps[0] = 'city_gmap_entry';
 
   var componentForm = {
     sublocality_level_1: 'long_name',
@@ -52,11 +51,40 @@ $(document).on('ready page:load', function() {
             }
         }
         document.getElementById(name).value = locationArray.toString();
+        //Display tags
+        var div = document.getElementById('client-cities');
+        div.innerHTML = div.innerHTML + '<div id="city-'+num+'" onclick="remover('+num+')">'+locationArray.toString()+' <a href="javascript:void(0)"><i class="city-remove glyphicon glyphicon-remove"></i></a></div>';
+        //Place in hidden field
+        div.innerHTML = div.innerHTML + '<input type="hidden" id="city-hidden-'+num+'" name="cities'+num+'" value="'+locationArray.toString()+'"/>';
+        num += 1;
+        document.getElementById(name).value = '';
+        document.getElementById(name).disabled = false;
+        //Blur submit button until cities have been entered.
+
       }
     });
 
   }
+  function remover(num) {
+    tag = document.getElementById('city-'+num);
+    hiddenCity = document.getElementById('city-hidden-'+num);
+    tag.parentNode.removeChild(tag);
+    hiddenCity.parentNode.removeChild(hiddenCity);
+  }
+  function formValidation() {
+    //count hidden/non-hidden location fields (if exist)
+    var locationFieldsCount = document.querySelectorAll('[id^="city-"]').length;
+    if (locationFieldsCount < 1 || locationFieldsCount == null ) {
+      return false;
+      div = document.getElementById('error-city');
+      div.innerHTML = '<small style="color:red;">Please enter at least one city to continue.</small>';
+    }
+
+  }
   window.initAutocomplete = initAutocomplete;
+  window.remover = remover;
+  window.formValidation = formValidation;
+
 
   //-----------------------------------
   //Serve multiple cities slide toggle

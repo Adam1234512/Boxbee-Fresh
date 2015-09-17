@@ -31,7 +31,8 @@
           <% end %>
           <div id="delete-listing" class="centered-title">
           <%= content_tag :div, id: "delete-listing-#{company.id}", class: 'centered-title' do %>
-            <%= link_to "Delete listing", company, method: :delete, remote: true %>
+            <%= link_to "Delete listing", company, method: :delete, remote: true %> | <%= link_to "Edit this listing", edit_company_path(company) %>
+
           <% end %>
           </div>
           <%= content_tag :div, nil, id: "listing-status-#{company.id}" %>
