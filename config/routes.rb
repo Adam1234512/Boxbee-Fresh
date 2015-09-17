@@ -26,8 +26,8 @@ Rails.application.routes.draw do
   end
   get '/beta-program' => 'beta_surveys#new'
   resources :beta_surveys, only: [:new, :create]
-  get '/business' => 'static_pages#business'
   get '/current_customers' => 'static_pages#legacy'
+  get '/jobs' => 'static_pages#jobs'
 
   #Legal
   get 'terms' => 'static_pages#terms'

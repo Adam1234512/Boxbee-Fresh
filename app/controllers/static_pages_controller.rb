@@ -1,6 +1,5 @@
 class StaticPagesController < ApplicationController
-  def business
-  end
+  helper StaticPagesHelper
 
   def legacy
   end
@@ -9,5 +8,9 @@ class StaticPagesController < ApplicationController
   end
 
   def privacy
+  end
+
+  def jobs
+
   end
 end

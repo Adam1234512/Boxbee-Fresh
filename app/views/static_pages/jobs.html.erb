@@ -1,0 +1,11 @@
+<div class="container holder legacy">
+  <h1>Boxbee jobs</h1>
+  <p>
+    We are always looking for exceptional talent to help us continue to build and remain at the forefront of
+    on demand storage. Please check the listings below for more information. 
+  </p>
+  <% get_job_listings.each do |job| %>
+  	<%= link_to job[0], job[2], target: '_blank' %>
+  	<p><%= job[1]%><br/></p>
+  <% end %>
+</div>
