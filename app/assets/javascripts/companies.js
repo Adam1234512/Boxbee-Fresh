@@ -85,13 +85,6 @@ $(document).on('ready page:load', function() {
   window.remover = remover;
   window.formValidation = formValidation;
 
-
-  //-----------------------------------
-  //Serve multiple cities slide toggle
-  $("#serve-multiple-cities").click(function(){
-    $("#multiple-cities-container").slideToggle("slow");
-  });
-
   //----------------------------------
   //Countdown feature
   var descriptionInput = $('#company_description');
