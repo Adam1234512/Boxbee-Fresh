@@ -1,4 +1,5 @@
 class BetaSurvey < ActiveRecord::Base
+  default_scope {order('created_at DESC')}
   def self.parse_and_create_user(params)
     first_name = params[:first_name]
     last_name = params[:last_name]
