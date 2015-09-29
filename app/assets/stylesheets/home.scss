@@ -12,39 +12,51 @@
 .holder {
   padding-top: 129px;
 }
-//Workable
-#whr_embed_hook {
-  text-align: center;
-}
-.whr-items {
-  list-style-type: none;
-  text-align: center;
-  padding-left:0;
+
+.top-fold-image {
+  background-image: url(image_path('warehouse.jpeg'));
+  height: 500px;
 }
 
-.whr-info {
-  list-style-type: none;
+#title-header {
+  padding: 260px 30px 0px 30px;
+  color: white;
+  text-shadow: 0 1.5px 0 black;
+  margin-top:0px;
   text-align:center;
-  padding-left:0;
-  font-family: 'adelle-sans-light'
 }
 
-.whr-title a {
-  color: #669966;
-  font-family: 'adelle-sans-regular';
-  text-transform: none;
+#detail-section {
+  padding: 30px 50px 30px 50px;
 }
 
-.whr-title h1, h2, h3, h4 {
-  font: 24px/28px "varela_roundregular", Arial, sans-serif;
+.main-icon {
+  font-size:40px;
+  color: gray;
 }
 
-#job-openings {
-  font-family: 'adelle-sans-light' !important;
-  text-align: center;
+#detail-section h3 {
+  color: #009887;
 }
 
-// .whr-info
-// .whr-dept
-// .whr-location
-// .whr-date
+#detail-section p {
+  text-align:center;
+}
+
+#bottom-cta-section {
+  background-color: #009887;
+  height: 300px;
+  color:white;
+  text-align:center !important;
+  font-family:'adelle-sans-regular';
+  padding: 75px 50px 30px 50px;
+}
+
+.btn-cta-secondary {
+  background-color: white;
+  color: #009887;
+  border: none;
+  font-size: 18px;
+  padding: 10px 30px 10px 30px;
+  border-radius:5px;
+}

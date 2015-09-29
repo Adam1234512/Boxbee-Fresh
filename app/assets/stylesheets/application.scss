@@ -123,6 +123,16 @@
 .centered-button a {
   float:none;
 }
+//Buttons
+.btn-cta {
+  background-color: #009887;
+  color: white !important;
+  border: none;
+  font-size: 18px;
+  padding: 10px 30px 10px 30px;
+  margin-top: 30px;
+  border-radius:5px;
+}
 //Flashes
 .flashes {
   margin-top: 60px;
@@ -144,4 +154,11 @@
 
 h1, h2, h3, h4 {
   font-family: 'adelle-sans-regular';
+}
+
+//Navbar
+.main-nav {
+  float: right;
+  margin: 10px;
+  color: #009887;
 }

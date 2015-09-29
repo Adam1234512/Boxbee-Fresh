@@ -377,6 +377,7 @@ body.active #header .navbar {
   top: 0;
   bottom: auto;
   position: fixed;
+  opacity: 0.95;
   /* navigation styles */
 }
 
@@ -879,58 +880,26 @@ width:20px;
 
 a {
   font-family: "adelle-sans-regular";
-  color: #669966 !important;
+  color: #009887;
   /*font-size: 14px;*/
 }
 
-a:visited {
+/*a:visited {
   font-family: "adelle-sans-regular";
   color: #669966;
-}
+}*/
 
 a:hover {
-  color: #66cc66 !important;
+  color: #36c9b9;
 }
 
 #investors {
   width: 100%;
   background-color: #f7fbfb;
+  height: 80px;
+  padding-top:15px;
 }
 
-#investor .container {
-
-}
-#investors .row {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 952px;
-  display: block;
-}
-
-#investors .box {
-  min-height: 50px;
-  min-width: 175px;
-  position: relative;
-  bottom: 15px;
-}
-
-#investors img {
-  position: absolute;
-  bottom: 0px;
-}
-
-#investors img.floodgate {
-  left: 25px;
-  bottom: 12px;
-}
-
-#investors img.lucas {
-  bottom: -7px;
-}
-
-#investors img.google {
-  bottom: 1px;
-}
 
 #investors p {
   color: #999999;
@@ -940,8 +909,9 @@ a:hover {
 }
 
 #footer {
-  background-color: #e7e9d9;
+  background-color: #333333;
   padding-bottom:30px;
+  text-align:center !important;
 }
 
 #footer p, #footer a {
@@ -959,7 +929,7 @@ a:hover {
 
 #footer h2 {
   font-family: 'adelle-sans-regular';
-  color: #666666;
+  color: #009887;
   font-size: 20px;
   margin: 0;
 }
@@ -971,4 +941,16 @@ a:hover {
  */
 body.modal-open #header {
   padding-right: 15px;
+}
+
+.centered-div {
+  text-align:center;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.img-space {
+  margin: 10px;
+  padding: 50px 0;
 }
