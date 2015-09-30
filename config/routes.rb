@@ -16,14 +16,6 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  resources :companies do
-    get :autocomplete_city_name, on: :collection
-    member do
-      get :approve_listing
-      patch :change_rank
-      get :delete_city
-    end
-  end
   get '/beta-program' => 'beta_surveys#new'
   resources :beta_surveys, only: [:new, :create, :show]
   get '/beta-program/thank_you' => 'beta_surveys#thank_you'
