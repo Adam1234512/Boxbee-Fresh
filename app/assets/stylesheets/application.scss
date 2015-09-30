@@ -28,83 +28,28 @@
  }
 
 // Fonts
+
 @font-face {
-  font-family: "adelle-sans-light";
-  src: url(font-path("adelle-sans-light.otf"));
+  font-family: "proxima-nova-regular";
+  src: url(font-path("ProximaNova-Regular.otf"));
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "adelle-sans-regular";
-  src: url(font-path("adelle-sans-regular.otf"));
+  font-family: "proxima-nova-semibold";
+  src: url(font-path("ProximaNova-Semibold.otf"));
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "icomoon";
-  src: url(font-path("icomoon.eot"));
-  src: url(font-path("icomoon.eot?#iefix")) format("embedded-opentype"), url(font-path("icomoon.woff")) format("woff"), url(font-path("icomoon.ttf")) format("truetype"), url(font-path("icomoon.svgicomoon")) format("svg");
+  font-family: "kozuka-gothic-pr6n-regular";
+  src: url(font-path("KozGoPr6N-Regular.otf"));
   font-weight: normal;
   font-style: normal;
 }
-@font-face {
-  font-family: "latolight";
-  src: url(font-path("lato-light-webfont.eot"));
-  src: url(font-path("lato-light-webfont.eot?#iefix")) format("embedded-opentype"), url(font-path("lato-light-webfont.woff")) format("woff"), url(font-path("lato-light-webfont.ttf")) format("truetype"), url(font-path("lato-light-webfont.svglato-light-webfont")) format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "latoblack";
-  src: url(font-path("lato-black-webfont.eot"));
-  src: url(font-path("lato-black-webfont.eot?#iefix")) format("embedded-opentype"), url(font-path("lato-black-webfont.woff")) format("woff"), url(font-path("lato-black-webfont.ttf")) format("truetype"), url(font-path("lato-black-webfont.svglato-black-webfont")) format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "latoregular";
-  src: url(font-path("lato-regular-webfont.eot"));
-  src: url(font-path("lato-regular-webfont.eot?#iefix")) format("embedded-opentype"), url(font-path("lato-regular-webfont.woff")) format("woff"), url(font-path("lato-regular-webfont.ttf")) format("truetype"), url(font-path("lato-regular-webfont.svglato-regular-webfont")) format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "brandon_grotesquebold";
-  src: url(font-path("brandon_bld_copy-webfont.eot"));
-  src: url(font-path("brandon_bld_copy-webfont.eot?#iefix")) format("embedded-opentype"), url(font-path("brandon_bld_copy-webfont.woff")) format("woff"), url(font-path("brandon_bld_copy-webfont.ttf")) format("truetype"), url(font-path("brandon_bld_copy-webfont.svgbrandon_bld_copy-webfont")) format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "varela_roundregular";
-  src: url(font-path("varelaround-regular-webfont.eot"));
-  src: url(font-path("varelaround-regular-webfont.eot?#iefix")) format("embedded-opentype"), url(font-path("varelaround-regular-webfont.woff")) format("woff"), url(font-path("varelaround-regular-webfont.ttf")) format("truetype"), url(font-path("varelaround-regular-webfont.svgvarelaround-regular-webfont")) format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "tradegothicbold";
-  src: url(font-path("tradegothic-boldtwo_copy-webfont.eot"));
-  src: url(font-path("tradegothic-boldtwo_copy-webfont.eot?#iefix")) format("embedded-opentype"), url(font-path("tradegothic-boldtwo_copy-webfont.woff")) format("woff"), url(font-path("tradegothic-boldtwo_copy-webfont.ttf")) format("truetype"), url(font-path("tradegothic-boldtwo_copy-webfont.svgtradegothic-boldtwo_copy-webfont")) format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "brandon_grotesque_regularRg";
-  src: url(font-path("brandon_reg_copy-webfont.eot"));
-  src: url(font-path("brandon_reg_copy-webfont.eot?#iefix")) format("embedded-opentype"), url(font-path("brandon_reg_copy-webfont.woff")) format("woff"), url(font-path("brandon_reg_copy-webfont.ttf")) format("truetype"), url(font-path("brandon_reg_copy-webfont.svgbrandon_reg_copy-webfont")) format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "tradegothiclight_oblique";
-  src: url(font-path("tradegothic-lightoblique_copy-webfont.eot"));
-  src: url(font-path("tradegothic-lightoblique_copy-webfont.eot?#iefix")) format("embedded-opentype"), url(font-path("tradegothic-lightoblique_copy-webfont.woff")) format("woff"), url(font-path("tradegothic-lightoblique_copy-webfont.ttf")) format("truetype"), url(font-path("tradegothic-lightoblique_copy-webfont.svgtradegothic-lightoblique_copy-webfont")) format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
+
 //Forms
 .centered-form {
   max-width: 750px;
@@ -133,6 +78,20 @@
   margin-top: 30px;
   border-radius:5px;
 }
+
+.btn-cta-inverted {
+  color: white !important;
+  border: 2px solid white;
+  padding: 10px;
+  border-radius:5px;
+}
+
+.btn-submit {
+  background-color: #009887;
+  color: white;
+  border-radius:5px;
+  width:100px;
+}
 //Flashes
 .flashes {
   margin-top: 60px;
@@ -153,7 +112,23 @@
 }
 
 h1, h2, h3, h4 {
-  font-family: 'adelle-sans-regular';
+  font-family: 'proxima-nova-semibold';
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+p {
+  font-family: 'proxima-nova-regular';
 }
 
 //Navbar

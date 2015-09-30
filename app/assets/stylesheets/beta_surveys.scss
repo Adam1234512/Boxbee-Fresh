@@ -4,3 +4,41 @@
 .new-company {
   margin-bottom:50px;
 }
+
+#beta-form {
+  padding: 0 60px;
+}
+
+#beta-form h2, h4 {
+  text-align:center;
+}
+
+#beta-form p {
+  text-align:center;
+  color: #9b9b9b;
+}
+
+#beta-form label {
+  font-family: 'proxima-nova-regular';
+  font-size: 14px;
+}
+
+#beta-form .form-control {
+  margin-top:5px;
+}
+
+#beta-form small {
+  margin-bottom: 5px;
+  color: #9b9b9b;
+}
+
+#thank-you-box {
+  border: 1px solid #9b9b9b;
+  width: 600px;
+  height: 350px;
+  padding: 50px;
+}
+
+#thank-you-box p {
+  color: #9b9b9b;
+}

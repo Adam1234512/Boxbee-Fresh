@@ -1,6 +1,7 @@
 <!-- Above the fold + Call to action -->
 <%= content_tag :div, class: 'top-fold-image' do %>
-	<h1 id="title-header">Our software powers On-Demand Storage. You have a storage company, we make it work.</h1>
+	<h1 class="title-header" style="padding-top:180px;">Our software powers On-Demand Storage.</h1>
+	<h1 class="title-header" style="margin-bottom:50px;">You have a storage company, we make it work.</h1>
 	<div class="centered-title" style="margin-top:25px;">
 		<%= link_to 'Join Our Beta Program', new_beta_survey_path, class: 'btn-cta' %>
 	</div>
@@ -8,39 +9,38 @@
 
 <!-- Detail section -->
 <div id="detail-section">
-	<h2 style="text-align:center;">Our platform is designed to make starting and managing an on-demand storage company easy.</h2>
-	<h4 style="margin-bottom:50px;text-align:center;">Our software helps you manage every aspect of your growing business.</h4>
+	<div class="centered-div" style="width:60%;">
+		<h2 style="margin-bottom:50px;">Boxbee makes it easy to start, manage and grow an On-Demand Storage company.</h2>
+	</div>
 	<div class="row" style="text-align:center;">
 		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-			<span class="glyphicon glyphicon-edit main-icon"></span>
-			<h3>Make it your own.</h3>
+			<%= image_tag 'boxbee-icons-01.svg' %>
+			<h4>Customized for you</h4>
 			<p>
-				Choose your name, your domain and your colors.
-				Create the exact storage service you want including pricing, operating area and items stored.
+				Create the storage service you want including branding, pricing, operating area, and types of items stored.
 			</p>
 		</div>
 		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-			<span class="glyphicon glyphicon-barcode main-icon"></span>
-			<h3>Your tech team.</h3>
+			<%= image_tag 'boxbee-icons-02.svg' %>
+			<h4>All-In-One System</h4>
 			<p>
-				We keep the software up-to date and running smoothly so you
-				don't have to make expensive and time-consuming engineering investments.
+				Manage your warehouse, vehicles, customers, and employees with powerful, easy-to-use tools
+				available on any device.
 			</p>
 		</div>
 		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-			<span class="glyphicon glyphicon-dashboard main-icon"></span>
-			<h3>All-in-one system.</h3>
+			<%= image_tag 'boxbee-icons-03.svg' %>
+			<h4>No-Hassle Technology</h4>
 			<p>
-				Manage your warehouse, your vans and your team in one place. And give your customers an elegant way
-				to make appointments and see what they have in storage with you.
+				We keep the software updated and running smoothly so you don't ever have to make expensive
+				engineering investments.
 			</p>
 		</div>
 		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-			<span class="glyphicon glyphicon-piggy-bank main-icon"></span>
-			<h3>Easy, fair pricing.</h3>
+			<%= image_tag 'boxbee-icons-04.svg' %>
+			<h4>Easy, fair pricing.</h4>
 			<p>
-				It's free to set up your storage company on our platform. You don't pay anything to us until customers
-				start paying you. We charge a small commission on your monthly sales.
+				Setup is free. You pay a small comission only when you get paying customers for your storage service.
 			</p>
 		</div>
 	</div>
@@ -48,8 +48,33 @@
 
 <!--Bottom CTA section -->
 <div id="bottom-cta-section">
-	<h2 style="margin-bottom:40px; text-align:center;">Let Us Show You The Future Of On-Demand Storage.</h2>
-	<%= link_to 'Join Our Beta Program', new_beta_survey_path, class: 'btn-cta-secondary' %>
+	<div class="centered-div" style="width:60%;">
+		<h2 style="margin-bottom:40px; color:white;">
+			Give your customers an elegant, easy-to-use website that's available on any device.
+		</h2>
+		<hr style="width:15%;border-color:white;border-top:2px solid white;">
+		<div class="row" style="text-align:center; margin-bottom:30px;">
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+				<h4>Visual Storage</h4>
+				<p>
+					Your customers can see what they have in storage with you.
+				</p>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+				<h4>Simple Scheduling</h4>
+				<p>
+					Your customers can make pickup and delivery appointments.
+				</p>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+				<h4>Self-Service</h4>
+				<p>
+					Your customers can manage their account and get support.
+				</p>
+			</div>
+		</div>
+		<%= link_to 'Join Our Beta Program', new_beta_survey_path, class: 'btn-cta-inverted' %>
+	</div>
 </div>
 
 <!--Investors section -->
@@ -58,6 +83,7 @@
 		<%= link_to(image_tag('googleventures.png'), 'http://www.googleventures.com', class: 'img-space') %>
 		<%= link_to(image_tag('floodgate.svg', height: '20px'), 'http://www.floodgate.com', class: 'img-space') %>
 		<%= link_to(image_tag('lucasventures.png'), 'http://www.lucasvg.com', class: 'img-space') %>
-		<%= link_to(image_tag('metamorphic.png'), 'http://www.metamorphicvc.com', class: 'img-space') %>
+		<%= link_to(image_tag('metamorphic.png'), 'http://www.metamorphic.vc', class: 'img-space') %>
 	</div>
 </div>
+<hr style="border-color:#4a4a4a;margin:0;">

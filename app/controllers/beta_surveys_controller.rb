@@ -12,18 +12,8 @@ class BetaSurveysController < ApplicationController
     @beta_survey = BetaSurvey.new(beta_survey_params)
     BetaSurvey.parse_and_create_user(params)
     if @beta_survey.save
-      flash[:notice] = "Thank you!  We'll be in touch soon with updates on the Boxbee Beta Program."
       BetaSurveyNotifier.send_beta_survey_notification_email(@beta_survey).deliver_now
-      if session[:company_id]
-        session[:company_id] = nil
-        redirect_to root_path
-      else
-        redirect_to new_company_path
-        session[:beta_survey_id] = @beta_survey.id
-        session[:beta_survey_first_name] = @beta_survey.first_name
-        session[:beta_survey_last_name] = @beta_survey.last_name
-        session[:beta_survey_email] = @beta_survey.email
-      end
+      redirect_to :thank_you
     else
       flash[:error] = "There was an error submitting your survey. Please contact boxbeeinc@boxbee.com."
       render :new
@@ -34,9 +24,13 @@ class BetaSurveysController < ApplicationController
     @beta_survey = BetaSurvey.find(params[:id])
   end
 
+  def thank_you
+
+  end
+
   private
 
   def beta_survey_params
-    params.require(:beta_survey).permit(:currently_offer_storage, {:how_manage_warehouse => []}, :offer_transport, {:how_manage_vehicles => []}, {:how_bookings_done => []}, :company_name, :company_website, :first_name, :last_name, :email, :preferred_contact_method)
+    params.require(:beta_survey).permit(:currently_offer_storage, {:how_manage_warehouse => []}, :offer_transport, {:how_manage_vehicles => []}, {:how_bookings_done => []}, :company_name, :company_website, :first_name, :last_name, :email, {:how_heard => []})
   end
 end

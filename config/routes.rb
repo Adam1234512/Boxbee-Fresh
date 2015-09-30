@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   end
   get '/beta-program' => 'beta_surveys#new'
   resources :beta_surveys, only: [:new, :create, :show]
+  get '/beta-program/thank_you' => 'beta_surveys#thank_you'
   get '/current_customers' => 'static_pages#legacy'
   get '/admin' => 'home#admin'
 

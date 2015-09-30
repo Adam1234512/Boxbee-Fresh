@@ -16,6 +16,10 @@
       text_field_value = document.getElementById('how_bookings_done_other_text').value
       console.log typeof text_field_value
       document.getElementById('beta_survey_how_bookings_done_other').setAttribute 'value', 'Other: ' + text_field_value
+    when "how_heard"
+      text_field_value = document.getElementById('how_heard_other_text').value
+      console.log typeof text_field_value
+      document.getElementById('beta_survey_how_heard_other').setAttribute 'value', 'Other: ' + text_field_value
   return
 
 @check = (group_id) ->
@@ -26,4 +30,6 @@
       document.getElementById('beta_survey_how_manage_vehicles_other').checked = true
     when "how_bookings_done"
       document.getElementById('beta_survey_how_bookings_done_other').checked = true
+    when "how_heard"
+      document.getElementById('beta_survey_how_heard_other').checked = true
   return
