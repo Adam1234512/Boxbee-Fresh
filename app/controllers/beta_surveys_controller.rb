@@ -13,7 +13,7 @@ class BetaSurveysController < ApplicationController
     BetaSurvey.parse_and_create_user(params)
     if @beta_survey.save
       BetaSurveyNotifier.send_beta_survey_notification_email(@beta_survey).deliver_now
-      redirect_to :thank_you
+      redirect_to beta_program_thank_you_path
     else
       flash[:error] = "There was an error submitting your survey. Please contact boxbeeinc@boxbee.com."
       render :new
