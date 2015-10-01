@@ -10,10 +10,12 @@ class BetaSurveysController < ApplicationController
 
   def create
     @beta_survey = BetaSurvey.new(beta_survey_params)
-    BetaSurvey.parse_and_create_user(params)
+    @user = BetaSurvey.parse_and_create_user(params)
     if @beta_survey.save
       BetaSurveyNotifier.send_beta_survey_notification_email(@beta_survey).deliver_now
       BetaSurveyAutoresponder.send_beta_survey_autoresponder_email(@beta_survey.email).deliver_now
+      BetaSurvey.create_capsule_contact(@beta_survey)
+      BetaSurvey.put_capsule_custom_fields(@beta_survey)
       redirect_to beta_program_thank_you_path
     else
       flash[:error] = "There was an error submitting your survey. Please contact boxbeeinc@boxbee.com."
