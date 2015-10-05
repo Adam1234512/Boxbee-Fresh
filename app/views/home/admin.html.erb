@@ -7,12 +7,6 @@
   <p>
     Email: <%= current_user.email %>
   </p>
-  <h3>Companies</h3>
-  <p>
-    Current number of companies signed up: <%= @companies.count %><br/>
-    Companies pending your approval: <%= @companies_for_approval %><br/>
-    <%= link_to "View/manage all companies", companies_path %>
-  </p>
 
   <h3>Beta Program Surveys</h3>
   <p>
