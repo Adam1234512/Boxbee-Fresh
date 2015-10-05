@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   #External forwarders
   get '/instacart' => redirect('https://www.boxbeestorage.com/instacart')
   get '/simplestorage' => redirect('https://www.boxbeestorage.com/simplestorage')
+  get '/jobs' => redirect('https://boxbee.workable.com')
 
 
   # Example resource route with options:
