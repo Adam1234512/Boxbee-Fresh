@@ -16,4 +16,5 @@
 //= require bootstrap-sprockets
 //= require beta_surveys
 //= require jquery-ui
+//= require redactor-rails
 //= require_tree .

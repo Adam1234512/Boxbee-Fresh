@@ -271,6 +271,9 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    redactor-rails-paperclip (0.4.3)
+      mime-types
+      orm_adapter
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     sass (3.4.18)
@@ -339,6 +342,7 @@ DEPENDENCIES
   rails (= 4.2.4)
   rails4-autocomplete
   rails_12factor
+  redactor-rails-paperclip
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
