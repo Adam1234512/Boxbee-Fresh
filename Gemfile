@@ -50,6 +50,7 @@ gem 'rails4-autocomplete'
 
 #Blog
 gem 'redactor-rails-paperclip'
+gem 'slugalicious'
 
 #analytics and performance
 gem 'mixpanel-ruby'
