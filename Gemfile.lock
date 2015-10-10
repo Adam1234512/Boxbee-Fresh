@@ -80,6 +80,7 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    disqus_rails (0.0.6)
     erubis (2.7.0)
     excon (0.45.4)
     execjs (2.6.0)
@@ -330,6 +331,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.1.0)
   devise
+  disqus_rails
   faker
   figaro
   fog
