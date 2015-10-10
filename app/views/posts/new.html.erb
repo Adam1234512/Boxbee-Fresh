@@ -1,7 +1,4 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
-<%= form_for @post do |f|%>
-  <%= f.text_field :title, class: 'form-control', required: true %>
-  <%= f.text_area :content, class: "redactor", rows: 40, cols: 120, required: true %>
-  <%= f.submit %>
-<% end %>
+<div class="container holder">
+  <h1 class="centered-title">Make a new blog post!</h1>
+  <%= render partial: 'form', locals: {post: @post} %>
+</div>

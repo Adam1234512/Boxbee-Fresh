@@ -1,0 +1,10 @@
+<div class="centered-title">
+  <h1><%= link_to post.title.html_safe, blog_post_path(post), class: 'blog-title' %></h1>
+  <p style="color:gray;">
+     <%= "Created on #{post.created_at.strftime('%m/%d/%Y')} by #{post.user.first_name} #{post.user.last_name}" %>
+  </p>
+</div>
+<hr/>
+<div class="centered-title">
+  <%= post.content.html_safe %>
+</div>
