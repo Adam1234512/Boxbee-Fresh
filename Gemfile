@@ -52,6 +52,7 @@ gem 'rails4-autocomplete'
 gem 'redactor-rails-paperclip'
 gem 'slugalicious'
 gem 'disqus_rails'
+gem 'will_paginate', '~> 3.0.6'
 
 #analytics and performance
 gem 'mixpanel-ruby'
