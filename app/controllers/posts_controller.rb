@@ -2,11 +2,13 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    authorize @post
   end
 
   def create
     @post = Post.create(post_params)
     @post.user = current_user
+    authorize @post
     if @post.save
       redirect_to blog_posts_path
       flash[:notice] = "#{current_user.first_name}, your blog post has successfully been published"
@@ -18,10 +20,12 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find_from_slug(params[:id])
+    authorize @post
   end
 
   def update
     @post = Post.find_from_slug(params[:id])
+    authorize @post
     if @post.update_attributes(post_params)
       redirect_to @post
       flash[:notice] = "#{current_user.first_name}, your blog post has successfully been updated"
@@ -36,11 +40,13 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.paginate(page: params[:page], per_page: 10)
+    @posts = policy_scope(Post).paginate(page: params[:page], per_page: 10)
+    authorize @posts
   end
 
   def destroy
     @post = Post.find_from_slug(params[:id])
+    authorize @post
     if @post.destroy
       flash[:notice] = "Your post has been successfully deleted"
       redirect_to @post

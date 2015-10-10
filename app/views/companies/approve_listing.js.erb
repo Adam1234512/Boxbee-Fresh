@@ -1,6 +1,0 @@
-<% if @company.valid? %>
-  $('#approve-listing-'+<%=@company.id%>).hide();
-  $('#listing-status-'+<%=@company.id%>).html("<p><span class='glyphicon glyphicon-ok'></span>Listing has been approved.</p>");
-<% else %>
-  $('#listing-status-'+<%=@company.id%>).html("<p style='color:red;'><span class='glyphicon glyphicon-remove'></span>Listing has been approved.</p>");
-<% end %>

@@ -25,6 +25,7 @@ class BetaSurveysController < ApplicationController
 
   def show
     @beta_survey = BetaSurvey.find(params[:id])
+    authorize @beta_survey
   end
 
   def thank_you

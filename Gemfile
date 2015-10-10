@@ -29,8 +29,10 @@ gem 'bootstrap-sass'
 gem 'devise'
 # Authorization
 gem 'pundit'
+gem 'rolify'
 # Credentials
 gem 'figaro'
+
 
 #images
 gem 'mini_magick'
