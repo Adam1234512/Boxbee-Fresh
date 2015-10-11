@@ -1,10 +1,47 @@
-<div class="centered-title">
-  <h1><%= link_to post.title.html_safe, blog_post_path(post), class: 'blog-title' %></h1>
-  <p style="color:gray;">
-     <%= "Created on #{post.created_at.strftime('%m/%d/%Y')} by #{post.user.first_name} #{post.user.last_name}" %>
-  </p>
-</div>
-<hr/>
-<div class="centered-title">
-  <%= post.content.html_safe %>
-</div>
+<% if allowed_labels.index(post.status) %>
+  <div class="centered-title">
+    <h1>
+      <%= link_to post.title.html_safe, blog_post_path(post), class: 'blog-title' %>
+      <%= render partial: 'tags', locals: {post: post} %>
+    </h1>
+    <p style="color:gray;">
+       <%= "Created on #{post.created_at.strftime('%m/%d/%Y')} by #{post.user.first_name} #{post.user.last_name}" %>
+    </p>
+  </div>
+
+  <hr/>
+
+  <div class="centered-title">
+    <%= post.content.html_safe %>
+  </div>
+
+  <% if policy(post).create? %>
+    <% case post.status %>
+      <% when "preview" %>
+        <%= form_for post, action: :update do |f| %>
+          <div class="form-group centered-div">
+            <%= f.hidden_field :title, value: "#{post.title}" %>
+            <%= f.submit "Save draft", name: :status, value: :draft, class: 'btn btn-warning' %>
+            <%= f.submit "Publish", name: :status, value: :published, class: 'btn btn-success' %>
+            <%= link_to "Edit", edit_post_path(post), class: 'btn btn-warning' %>
+          </div>
+        <% end %>
+      <% when "draft" %>
+        <%= form_for post, action: :update do |f| %>
+          <div class="form-group centered-div">
+            <%= f.hidden_field :title, value: "#{post.title}" %>
+            <%= f.submit "Publish", name: :status, value: :published, class: 'btn btn-success' %>
+            <%= link_to "Delete", post, method: :delete, class: 'btn btn-danger' %>
+            <%= link_to "Edit", edit_post_path(post), class: 'btn btn-warning' %>
+          </div>
+        <% end %>
+      <% when "published" %>
+      <div class="centered-div">
+        <%= link_to "Delete", post, method: :delete, class: 'btn btn-danger' %>
+        <%= link_to "Edit", edit_post_path(post), class: 'btn btn-warning' %>
+      </div>
+      <% else %>
+    <% end %>
+  <% end %>
+  <hr/>
+<% end %>

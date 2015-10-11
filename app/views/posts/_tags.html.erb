@@ -1,0 +1,11 @@
+<% if policy(post).create? %>
+  <% case post.status %>
+    <% when "preview" %>
+      <span class="label label-primary status">Preview</span>
+    <% when "draft" %>
+      <span class="label label-warning status">Draft</span>
+    <% when "published" %>
+      <span class="label label-success status">Published</span>
+    <% else %>
+  <% end %>
+<% end %>

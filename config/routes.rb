@@ -1,16 +1,15 @@
 Rails.application.routes.draw do
 
-  mount RedactorRails::Engine => '/redactor_rails'
+  scope 'blog', as: 'blog' do
+    resources :posts
+    get '/posts/:id/preview' => 'posts#preview', as: :preview
+  end
   resources :posts
+
+  mount RedactorRails::Engine => '/redactor_rails'
 
   devise_for :users, controllers: { registrations: "registrations" }
   resources :users, only: [:show]
-
-  scope 'blog', as: 'blog' do
-    resources :posts
-  end
-
-  # get '/posts/*path', 'posts#show', as: :posts
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

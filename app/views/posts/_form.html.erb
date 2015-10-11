@@ -18,6 +18,8 @@
     <%= f.text_area :content, class: "redactor", rows: 40, cols: 120, placeholder: 'Start typing your blog post!', required: true %>
   <% end %>
   <div class="form-group">
-    <%= f.submit "Save", class: 'btn btn-success' %>
+    <%= f.submit "Preview", name: :status, value: :preview, class: 'btn btn-primary' %>
+    <%= f.submit "Save draft", name: :status, value: :draft, class: 'btn btn-warning' %>
+    <%= f.submit "Publish", name: :status, value: :published, class: 'btn btn-success' %>
   </div>
 <% end %>

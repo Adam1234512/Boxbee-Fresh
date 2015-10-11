@@ -1,5 +1,5 @@
 <div class="container holder">
-  <%= render partial: 'post', collection: @posts %>
+  <%= render partial: 'post', collection: @posts, locals: {allowed_labels: @allowed_labels} %>
   <div class="centered-div">
     <%= will_paginate @posts %>
   </div>

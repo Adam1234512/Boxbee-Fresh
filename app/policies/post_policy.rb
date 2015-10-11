@@ -15,6 +15,10 @@ class PostPolicy < ApplicationPolicy
     create?
   end
 
+  def preview?
+    create?
+  end
+
   class Scope < Scope
     def resolve
       if user.present? && (user.has_role?(:admin) || user.has_role?(:editor))
