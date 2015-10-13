@@ -12,15 +12,7 @@ class PostsController < ApplicationController
     authorize @post
     @post.user = current_user
 
-    if params[:status] == "preview"
-      if @post.save
-        redirect_to blog_preview_path(@post)
-        Rails.logger.debug("Preview post: #{@post.inspect}")
-      else
-        flash[:error] = "Error: Could not produce preview. Please check your form"
-        render :new
-      end
-    elsif params[:status] == "draft"
+    if params[:status] == "draft"
       save_post("saved to drafts")
     elsif params[:status] == "published"
       save_post("published")
@@ -47,7 +39,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_from_slug(params[:id])
-    @allowed_labels = ["preview", "draft", "published"]
+    @allowed_labels = ["draft", "published"]
   end
 
   def index
@@ -69,10 +61,9 @@ class PostsController < ApplicationController
   end
 
   def preview
-    @post = Post.find_from_slug(params[:id])
-    authorize @post
-    @allowed_labels = ["preview"]
   end
+
+
 
   #helpers
 

@@ -1,0 +1,7 @@
+<script type="text/javascript">
+  $(document).on('ready page:load', function() {
+    $('#preview-link').click(function() {
+      var w = window.open('<%= escape_javascript(url_for blog_preview_path) %>', '_blank');
+    });
+  });
+</script>

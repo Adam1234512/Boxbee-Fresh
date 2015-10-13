@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   scope 'blog', as: 'blog' do
     resources :posts
-    get '/posts/:id/preview' => 'posts#preview', as: :preview
+    get '/preview-post' => 'posts#preview', as: :preview
   end
   resources :posts
 

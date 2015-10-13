@@ -1,4 +1,16 @@
 <div class="container holder">
-  <%= render partial: 'post', locals: {post: @post, allowed_labels: @allowed_labels} %>
-  <%= render partial: 'comments', locals: {post: @post} %>
+  <div class="centered-title">
+    <h1 id="title"></h1>
+    <span class="label label-primary status">Preview</span>
+    <p style="color:gray;" id="meta-sub"></p>
+  </div>
+  <hr/>
+  <div class="centered-title" id="content"></div>
+  <hr/>
+  <script type="text/javascript">
+    var title = window.opener.document.getElementById('post_title').value;
+    var content = window.opener.document.getElementById('post_content').value;
+    document.getElementById('title').innerHTML = title;
+    document.getElementById('content').innerHTML = content;
+  </script>
 </div>

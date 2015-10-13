@@ -17,15 +17,6 @@
 
   <% if policy(post).create? %>
     <% case post.status %>
-      <% when "preview" %>
-        <%= form_for post, action: :update do |f| %>
-          <div class="form-group centered-div">
-            <%= f.hidden_field :title, value: "#{post.title}" %>
-            <%= f.submit "Save draft", name: :status, value: :draft, class: 'btn btn-warning' %>
-            <%= f.submit "Publish", name: :status, value: :published, class: 'btn btn-success' %>
-            <%= link_to "Edit", edit_post_path(post), class: 'btn btn-warning' %>
-          </div>
-        <% end %>
       <% when "draft" %>
         <%= form_for post, action: :update do |f| %>
           <div class="form-group centered-div">
@@ -36,10 +27,10 @@
           </div>
         <% end %>
       <% when "published" %>
-      <div class="centered-div">
-        <%= link_to "Delete", post, method: :delete, class: 'btn btn-danger' %>
-        <%= link_to "Edit", edit_post_path(post), class: 'btn btn-warning' %>
-      </div>
+        <div class="centered-div">
+          <%= link_to "Delete", post, method: :delete, class: 'btn btn-danger' %>
+          <%= link_to "Edit", edit_post_path(post), class: 'btn btn-warning' %>
+        </div>
       <% else %>
     <% end %>
   <% end %>
