@@ -19,7 +19,7 @@ class BetaSurvey < ActiveRecord::Base
         contacts: {
           email: {
             type: 'work',
-            emailAddress: beta_survey.email
+            emailAddress: beta_survey.email.gsub!('+','%2B')
           },
           website: {
             type: 'work',
@@ -33,6 +33,7 @@ class BetaSurvey < ActiveRecord::Base
       }
     }
     b = builder[:person].to_xml(root: :person).gsub!(/\"/, '\'').gsub!(/\n/, '')
+    Rails.logger.debug("xml object for person POST to capsule: #{b}")
     result = HTTParty.post("https://boxbee.capsulecrm.com/api/person", body: b, basic_auth: {:username=> ENV['CAPSULE_TOKEN'], :password => "x"}, headers: {'Content-type' => 'application/xml'})
     Rails.logger.debug("result of HTTParty: #{result}")
   end
@@ -41,6 +42,7 @@ class BetaSurvey < ActiveRecord::Base
     Rails.logger.debug("beta survey path: #{Rails.application.routes.url_helpers.beta_survey_url(beta_survey, host: 'boxbee.com')}")
     person_match = HTTParty.get("https://boxbee.capsulecrm.com/api/party?email=#{beta_survey.email}", basic_auth: {:username=> ENV['CAPSULE_TOKEN'], :password => "x"})
     h = Hash.from_xml(person_match.body)['parties']
+    Rails.logger.debug("h: #{h}")
     Rails.logger.debug("size: #{h['size']}")
     if h['size'].to_i == 1
       id = h['person']['id']
