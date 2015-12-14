@@ -19,7 +19,7 @@ class BetaSurvey < ActiveRecord::Base
         contacts: {
           email: {
             type: 'work',
-            emailAddress: beta_survey.email.gsub!('+','%2B')
+            emailAddress: beta_survey.email.gsub('+','%2B')
           },
           website: {
             type: 'work',
@@ -40,7 +40,8 @@ class BetaSurvey < ActiveRecord::Base
 
   def self.put_capsule_custom_fields(beta_survey)
     Rails.logger.debug("beta survey path: #{Rails.application.routes.url_helpers.beta_survey_url(beta_survey, host: 'boxbee.com')}")
-    person_match = HTTParty.get("https://boxbee.capsulecrm.com/api/party?email=#{beta_survey.email}", basic_auth: {:username=> ENV['CAPSULE_TOKEN'], :password => "x"})
+    person_match = HTTParty.get("https://boxbee.capsulecrm.com/api/party?email=#{beta_survey.email}",
+      basic_auth: {:username=> ENV['CAPSULE_TOKEN'], :password => "x"})
     h = Hash.from_xml(person_match.body)['parties']
     Rails.logger.debug("h: #{h}")
     Rails.logger.debug("size: #{h['size']}")

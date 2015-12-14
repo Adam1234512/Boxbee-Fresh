@@ -57,9 +57,9 @@
               <%= form_group_tag(@beta_survey.errors[:company_website]) do %>
                 <%= f.label :company_website %>
                 <% if @company %>
-                  <%= f.url_field :company_website, value: "#{@company.website_url}", class: 'form-control', placeholder: "What is your company's website?", required: true %>
+                  <%= f.text_field :company_website, value: "#{@company.website_url}", class: 'form-control', placeholder: "What is your company's website?", required: true %>
                 <% else %>
-                  <%= f.url_field :company_website, class: 'form-control', placeholder: "Full URL, e.g. http://boxbee.com", required: true %>
+                  <%= f.text_field :company_website, class: 'form-control', placeholder: "Full URL, e.g. http://boxbee.com", required: true %>
                 <% end %>
               <% end %>
             </div>
