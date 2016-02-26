@@ -1,65 +1,69 @@
-<!-- Above the fold + Call to action -->
-<%= content_tag :div, class: 'top-fold-image' do %>
-	<h1 class="title-header" style="padding-top:180px;">We make it easy to start, manage, and grow</h1>
-	<h1 class="title-header" style="margin-bottom:50px;">your On-Demand Storage company.</h1>
-	<div class="centered-title" style="margin-top:25px;">
-		<%= link_to 'Join Our Beta Program', new_beta_survey_path, class: 'btn-cta' %>
+<div class="hero-art-layer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6" style="position:relative; height:488px; max-width:500px;">
+				<div class="content-block">
+					<h1>We Power Full-Service Storage.</h1>
+					<p>
+						Self-storage companies (big and small) use Boxbee to offer their
+						customers on-demand pickup and delivery.
+					</p>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<%= image_tag 'flying-macbook.png', size: '442x488' %>
+			</div>
+		</div>
 	</div>
-<% end %>
-
-<!-- Detail section -->
-<div id="detail-section">
-	<div class="centered-div" style="width:60%;">
-		<h2 style="margin-bottom:50px;">Our software powers On-Demand Storage.</h2>
+</div>
+<div class="e2e-section" id="e2e-section">
+	<div class="row">
+		<div class="col-md-6" style="position:relative;">
+			<%= image_tag 'laptop_phone.png', width: '823' %>
+		</div>
+		<div class="col-md-6" style="max-width:500px; position:relative; height:541px;">
+			<div class="content-block" style="top:40%;">
+				<h1 style="color:black;">For Self-Storage Entrepreneurs</h1>
+				<p>
+					Our end-to-end software solution helps entrepreneurs manage an entire Full-Service Storage business. Signing up customers,
+					accepting pickup and delivery appointments, and managing vehicles and warehouses is brilliantly easy. No technical know-how needed.
+				</p>
+				<%= link_to 'Join our beta program', new_beta_survey_path, class: 'btn-cta-black', style: 'margin-top:20px;' %>
+			</div>
+		</div>
 	</div>
-	<div class="row" style="text-align:center;">
-		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-			<%= image_tag 'boxbee-icons-01.svg' %>
-			<h4>Customizable</h4>
-			<p>
-				Create the storage service you want including branding, pricing, operating area, and types of items stored.
+</div>
+<div class="apis-section">
+	<div class="row">
+		<div class="col-md-6" style="padding-left:70px;">
+			<h1>
+				For Self-Storage Companies
+			</h1>
+			<p style="color:white;">
+				Our powerful APIs help self-storage companies add on-demand pickup and delivery features to their own website.
+				Tools to manage everything from appointments to vehicles to warehouses to customer billing can be integrated into existing systems.
 			</p>
+				<%= mail_to 'api@boxbee.com', 'Email us to learn more', class: 'btn-cta-black', style: 'margin-top:20px;' %>
 		</div>
-		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-			<%= image_tag 'boxbee-icons-02.svg' %>
-			<h4>End-To-End Solution</h4>
-			<p>
-				Manage your warehouse, vehicles, customer billing, and employees with powerful, easy-to-use tools.
-			</p>
-		</div>
-		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-			<%= image_tag 'boxbee-icons-03.svg' %>
-			<h4>No-Hassles</h4>
-			<p>
-				We keep the software updated and running smoothly so you don't need expensive
-				engineering investments.
-			</p>
-		</div>
-		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-			<%= image_tag 'boxbee-icons-04.svg' %>
-			<h4>Easy Pricing</h4>
-			<p>
-				Setup is free. You pay a small commission only when you get paying customers for your storage service.
-			</p>
+		<div class="col-md-6" style="position:relative; height:300px;">
+			<div class="content-block" style="top:40%; padding-left:70px;">
+				<%= image_tag 'api.png' %>
+				<%= image_tag 'web-development.png' %>
+			</div>
 		</div>
 	</div>
 </div>
 
-<!--Bottom CTA section -->
-<div id="bottom-cta-section">
-	<div class="centered-div" style="width:60%;">
-		<h2 style="margin-bottom:40px; color:white;">We're sending invitations out over the next few months for our beta program.</h2>
-		<%= link_to 'Join Our Beta Program', new_beta_survey_path, class: 'btn-cta-inverted' %>
-	</div>
+<div class="investors-section">
+	<%= image_tag 'googleventures.png', style: 'margin: 0px 20px'%>
+	<%= image_tag 'floodgate.png', style: 'margin: 0px 20px'%>
+	<%= image_tag 'Lucas-logo.png', style: 'margin: 0px 20px'%>
+	<%= image_tag 'metamorphic.png', style: 'margin: 0px 20px'%>
 </div>
 
-<!--Investors section -->
-<div class="row centered-div" style="margin:0;">
-	<div id="investors">
-		<%= link_to(image_tag('googleventures.png'), 'http://www.googleventures.com', class: 'img-space') %>
-		<%= link_to(image_tag('floodgate.svg', height: '20px'), 'http://www.floodgate.com', class: 'img-space') %>
-		<%= link_to(image_tag('lucasventures.png'), 'http://www.lucasvg.com', class: 'img-space') %>
-		<%= link_to(image_tag('metamorphic.png'), 'http://www.metamorphic.vc', class: 'img-space') %>
-	</div>
+<div class="bottom-cta">
+	<p>
+		Current storage customers:
+	</p>
+	<%= link_to 'Login', 'https://www.boxbeestorage.com/simplestorage', class: 'btn-cta-black centered-div', style: 'margin-top:25px' %>
 </div>
-<hr style="border-color:#4a4a4a;margin:0;">

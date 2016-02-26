@@ -2,67 +2,162 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#companies-search {
-  text-align:center !important;
+.logo-top {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.hero-art-layer {
+  background-color: #fbce00;
+  height: 610px;
+  background-image: url(image_path('overlay-hero-form_factors.png'));
+  padding-top: 100px;
+}
+
+.hero-art-layer h1 {
+  color:#ffffff;
+}
+
+.content-block {
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.e2e-section {
+  padding-top:50px;
+  height: 600px;
+}
+
+.e2e-section img {
+  position: absolute;
+  left: -162px;
+}
+
+.apis-section {
+  height: 425px;
+  background-color: #4a90e2;
+  background-image: url(image_path('overlay-Api-section-form_factors.png'));
+  padding-top:86px;
+  padding-left:100px;
+  padding-right:100px;
+}
+
+.apis-section img {
+  width:162px;
+  margin: 0px 30px;
+}
+
+.investors-section {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.bottom-cta {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  height: 251px;
+  background-color: #fbce00;
+  background-image: url(image_path('overlay-hero-form_factors.png'));
+  padding-top: 69px;
+}
+
+.btn-cta-black {
   display: block !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  background-color: black !important;
+  font-family:'Hind-Medium' !important;
+  font-size:13.9px !important;
+  color:#ffffff !important;
+  line-height:17px !important;
+  border-radius:3px !important;
+  width:204px !important;
+  height:48px !important;
+  text-align: center !important;
+  padding: 15px !important;
 }
 
-.holder {
-  padding-top: 129px;
+.footer {
+  background-color: black;
+  height: 75px;
 }
 
-.top-fold-image {
-  background-image: url(image_path('warehouse-boxbee.jpg'));
-  background-position: center;
-  height: 500px;
+.footer small {
+  font-family:'OpenSans';
+  font-size:12px;
+  color:gray;
+  line-height:17px;
 }
 
-.title-header {
-  padding: 0px 30px 0px 30px;
-  color: white;
-  text-shadow: 0 1px 0 black;
-  margin-top:0px;
-  text-align:center;
-}
+// #companies-search {
+//   text-align:center !important;
+//   display: block !important;
+//   margin-left: auto !important;
+//   margin-right: auto !important;
+// }
+//
+// .holder {
+//   padding-top: 129px;
+// }
+//
+// .top-fold-image {
+//   background-image: url(image_path('warehouse-boxbee.jpg'));
+//   background-position: center;
+//   height: 500px;
+// }
+//
+// .title-header {
+//   padding: 0px 30px 0px 30px;
+//   color: white;
+//   text-shadow: 0 1px 0 black;
+//   margin-top:0px;
+//   text-align:center;
+// }
+//
+// #detail-section {
+//   padding: 30px 50px 30px 50px;
+// }
+//
+// .main-icon {
+//   font-size:40px;
+//   color: gray;
+// }
+//
+// #detail-section h4 {
+//   color: #009887;
+// }
 
-#detail-section {
-  padding: 30px 50px 30px 50px;
-}
-
-.main-icon {
-  font-size:40px;
-  color: gray;
-}
-
-#detail-section h4 {
-  color: #009887;
-}
-
-#detail-section p {
-  text-align:center;
-}
-
-#bottom-cta-section {
-  background-color: #009887;
-  color:white;
-  text-align:center !important;
-  font-family:'adelle-sans-regular';
-  padding: 40px 50px;
-}
-
-#bottom-cta-section p {
-  color: white;
-  text-align:center;
-  font-size: 18px;
-}
-
-#bottom-cta-section h4 {
-  color: #333333;
-  font-size: 20px;
-
-}
+// #detail-section p {
+//   text-align:center;
+// }
+//
+// #bottom-cta-section {
+//   background-color: #009887;
+//   color:white;
+//   text-align:center !important;
+//   font-family:'adelle-sans-regular';
+//   padding: 40px 50px;
+// }
+//
+// #bottom-cta-section p {
+//   color: white;
+//   text-align:center;
+//   font-size: 18px;
+// }
+//
+// #bottom-cta-section h4 {
+//   color: #333333;
+//   font-size: 20px;
+//
+// }
 
 
 .btn-cta-secondary {

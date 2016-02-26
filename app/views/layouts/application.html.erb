@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Boxbee: We Power On-Demand Storage</title>
+  <title>Boxbee: We Power Full-Service Storage</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= favicon_link_tag 'favicon.ico' %>
   <%= csrf_meta_tags %>
   <meta charset="UTF-8">
-  <meta name="description" content="Boxbee makes it easy to start, manage and grow your On-Demand Storage company.">
-  <meta name="keywords" content="storage, self-storage, on-demand storage, logistics">
+  <meta name="description" content="Self-storage companies (big and small) use Boxbee to offer their customers on-demand pickup and delivery.">
+  <meta name="keywords" content="storage, self-storage, on-demand storage, logistics, full-service storage">
 </head>
 <body>
-<%= render partial: 'layouts/header' %>
-<% if flash[:notice]  %>
+  <div style="width:1441px;">
+    <%= render partial: 'layouts/header' %>
+    <% if flash[:notice]  %>
     <div class="alert alert-success flashes" id="flash-success">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       <%= flash[:notice] %>
     </div>
-<% elsif flash[:error]  %>
-  <div class="alert alert-danger flashes" id="flash-error">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <%= flash[:error] %>
+    <% elsif flash[:error]  %>
+    <div class="alert alert-danger flashes" id="flash-error">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:error] %>
+    </div>
+    <% elsif flash[:alert]  %>
+    <div class="alert alert-danger flashes" id="flash-alert">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:alert] %>
+    </div>
+    <% end %>
+    <%= yield %>
+    <%=render partial: 'layouts/footer' %>
+    <% render partial: 'layouts/google_analytics' %>
   </div>
-<% elsif flash[:alert]  %>
-  <div class="alert alert-danger flashes" id="flash-alert">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <%= flash[:alert] %>
-  </div>
-<% end %>
-<%= yield %>
-<%=render partial: 'layouts/footer' %>
-<% render partial: 'layouts/google_analytics' %>
 </body>
 </html>

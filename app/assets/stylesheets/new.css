@@ -111,11 +111,11 @@ body.active #header .navbar {
   background: white;
   min-height: 65px;
   width: 100%;
-  box-shadow: 0 2px 3px #cccccc;
   top: 0;
   bottom: auto;
   position: fixed;
-  opacity: 0.95;
+  max-width: 1441px;
+  box-shadow: 0 1px 0 #cccccc;
   /* navigation styles */
 }
 
@@ -154,11 +154,11 @@ body.active #header .navbar {
   display: block;
 }
 
-a {
+/*a {
   font-family: "proxima-nova-regular";
   color: #009182;
   font-size: 18px;
-}
+}*/
 
 #investors {
   width: 100%;

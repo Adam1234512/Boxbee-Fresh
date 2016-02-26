@@ -1,11 +1,8 @@
 <div style="background-color:#fafafa;">
-  <div class="new-company container holder" style="margin-bottom:0;padding-bottom:20px;">
+  <div class="new-company container holder" style="margin-bottom:0;padding-bottom:20px;padding-top:100px;">
       <div class="centered-form" id="beta-form">
         <h2>Join Our Beta Program</h2>
-        <p>
-          Over the next few months, we will be inviting On-Demand Storage companies to get early access to our software platform and to give us feedback on how the platform works.
-          Apply now to become a beta user by filling out this simple form.
-        </p><br/>
+        <br/>
 
         <%= form_for @beta_survey do |f| %>
           <!-- Error handling -->
@@ -132,7 +129,7 @@
           <% end %>
 
           <div class="form-group centered-div">
-            <%= f.submit "Submit", class: 'btn-cta', style: 'margin-top:20px; width:300px' %>
+            <%= f.submit "Submit", class: 'btn-cta-black centered-div', style: 'margin-top:20px; width:300px' %>
           </div>
         <% end %>
       </div>

@@ -50,6 +50,28 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Hind-Medium";
+  src: url(font-path("Hind-Medium.ttf"));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Hind-Light";
+  src: url(font-path("Hind-Light.ttf"));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url(font-path("OpenSans-Regular.ttf"));
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 //Forms
 .centered-form {
   max-width: 750px;
@@ -111,25 +133,43 @@
   display:         flex;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'proxima-nova-semibold';
-}
-
 h1 {
-  font-size: 36px;
-}
-
-h2 {
-  font-size: 28px;
-}
-
-h4 {
-  font-size: 20px;
+  font-family: 'Hind-Light';
+  font-size:35px;
+  color:#ffffff;
+  line-height:30px;
 }
 
 p {
-  font-family: 'proxima-nova-regular';
+  font-family:'OpenSans';
+  font-size:18px;
+  color:#000000;
+  line-height:25px;
 }
+
+a:visited {
+    color: white;
+}
+
+// h1, h2, h3, h4 {
+//   font-family: 'proxima-nova-semibold';
+// }
+//
+// h1 {
+//   font-size: 36px;
+// }
+//
+// h2 {
+//   font-size: 28px;
+// }
+//
+// h4 {
+//   font-size: 20px;
+// }
+//
+// p {
+//   font-family: 'proxima-nova-regular';
+// }
 
 //Navbar
 .main-nav {

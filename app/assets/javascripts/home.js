@@ -1,13 +1,16 @@
 $(document).on('read page:load', function() {
-    $( "#search" ).autocomplete({
-      source: function (request, response) {
-  		 jQuery.getJSON(
-  			"http://gd.geobytes.com/AutoCompleteCity?callback=?&q="+request.term,
-  			function (data) {
-  			 response(data);
-  			}
-  		 );
-      },
-      minLength: 3
+  $(function() {
+    $('#learn-more').click(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          $('html, body').animate({
+            scrollTop: target.offset().top
+          }, 1000);
+          return false;
+        }
+      }
     });
   });
+});
