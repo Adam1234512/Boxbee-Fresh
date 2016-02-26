@@ -233,6 +233,7 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     pg (0.18.2)
+    puma (2.12.3)
     pundit (1.0.1)
       activesupport (>= 3.0.0)
     rack (1.6.4)
@@ -335,6 +336,7 @@ DEPENDENCIES
   mixpanel-ruby
   paperclip
   pg
+  puma
   pundit
   rails (= 4.2.4)
   rails4-autocomplete
