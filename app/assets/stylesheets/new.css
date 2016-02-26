@@ -114,7 +114,7 @@ body.active #header .navbar {
   top: 0;
   bottom: auto;
   position: fixed;
-  max-width: 1441px;
+  /*max-width: 1441px;*/
   box-shadow: 0 1px 0 #cccccc;
   /* navigation styles */
 }

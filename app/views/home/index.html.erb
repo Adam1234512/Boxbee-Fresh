@@ -1,6 +1,6 @@
-<div class="hero-art-layer">
-	<div class="container">
-		<div class="row">
+<div class="hero-art-layer centered-div">
+	<div class="row">
+		<div class="centered-div" style="width:1000px;">
 			<div class="col-xs-6" style="position:relative; height:488px; max-width:500px;">
 				<div class="content-block">
 					<h1>We Power Full-Service Storage</h1>
@@ -18,17 +18,19 @@
 </div>
 <div class="e2e-section" id="e2e-section">
 	<div class="row">
-		<div class="col-xs-6" style="position:relative;">
-			<%= image_tag 'laptop_phone.png', width: '823' %>
-		</div>
-		<div class="col-xs-6" style="max-width:500px; position:relative; height:541px;">
-			<div class="content-block" style="top:40%;">
-				<h1 style="color:black;">For Self-Storage Entrepreneurs</h1>
-				<p>
-					Our end-to-end software solution helps entrepreneurs manage an entire Full-Service Storage business. Signing up customers,
-					accepting pickup and delivery appointments, and managing drivers and warehouses is brilliantly easy. No technical know-how needed.
-				</p>
-				<%= link_to 'Join our beta program', new_beta_survey_path, class: 'btn-cta-black', style: 'margin-top:20px;' %>
+		<div class="centered-div" style="width:1441px">
+			<div class="col-xs-6">
+				<%= image_tag 'laptop_phone.png', width: '823' %>
+			</div>
+			<div class="col-xs-6" style="max-width:500px; position:relative; height:541px;">
+				<div class="content-block" style="top:40%; margin-left:100px;">
+					<h1 style="color:black;">For Self-Storage Entrepreneurs</h1>
+					<p>
+						Our end-to-end software solution helps entrepreneurs manage an entire Full-Service Storage business. Signing up customers,
+						accepting pickup and delivery appointments, and managing drivers and warehouses is brilliantly easy. No technical know-how needed.
+					</p>
+					<%= link_to 'Join our beta program', new_beta_survey_path, class: 'btn-cta-black', style: 'margin-top:20px;' %>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -40,8 +42,8 @@
 				For Self-Storage Companies
 			</h1>
 			<p style="color:white;">
-				Our powerful APIs help established self-storage companies add on-demand pickup and delivery features to their own website.
-				Tools to manage everything from appointments to vehicles to warehouses to customer billing can be integrated into their own existing systems.
+				Our powerful APIs help established self-storage companies add on-demand pickup and delivery capabilities to their own website.
+				Tools to manage everything from appointments to routing to inventory to billing can be integrated into their existing systems.
 			</p>
 				<%= mail_to 'api@boxbee.com', 'Email us to learn more', class: 'btn-cta-black', style: 'margin-top:20px;' %>
 		</div>

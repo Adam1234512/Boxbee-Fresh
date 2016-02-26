@@ -25,6 +25,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  text-align: left;
 }
 
 .e2e-section {
@@ -33,8 +34,6 @@
 }
 
 .e2e-section img {
-  position: absolute;
-  left: -162px;
 }
 
 .apis-section {
